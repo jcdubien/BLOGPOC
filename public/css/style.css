@@ -17,3 +17,7 @@ footer {
     display: flex;
     justify-content: space-around;
 }
+
+h2 {
+    text-decoration-color: red;
+}

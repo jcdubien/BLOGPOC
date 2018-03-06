@@ -15,7 +15,7 @@
 <!-- Latest compiled and minified JavaScript -->
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
 
-<link rel="stylesheet" href="public/css/style.css"  
+<link rel="stylesheet" href="public/css/style.css">
 
     <title><?= $title ?></title>
 
@@ -29,7 +29,7 @@
     <!-- Include all compiled plugins (below), or include individual files as needed -->
         <script src="js/bootstrap.min.js"></script>
 
-        <<nav class="navbar navbar-inverse navbar-fixed-top">
+        <nav class="navbar navbar-inverse navbar-fixed-top">
              <div class="container">
                  <div class="navbar-header">
                      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
@@ -47,10 +47,10 @@
                          <li><a href="index.php?action=auteur">A propos de l'auteur</a></li>
                          <li><a href="tel:0690212201">Contact</a></li>
                         </ul>
-                </div><!--/.nav-collapse -->
+                </div>
             </div>
         </nav>
-
+        
    <body>     
          <?= $content ?>
    </body>

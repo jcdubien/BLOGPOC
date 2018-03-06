@@ -1,15 +1,12 @@
 <?php
+require('model/frontend.php');
 
-require('model.php');
-
-if (isset($_GET['id']) && $_GET['id']>0) {
-    $post=getPost($_GET['id']);
-    $comment=getComments($_GET['id']);
-require("/view/postView.php");
-} 
-
-else {
-
-    echo("Erreur : aucun identifiant de billet envoyé ");
-
+if (isset($_GET['id']) && $_GET['id'] > 0) {
+    $post = getPost($_GET['id']);
+    $comments = getComments($_GET['id']);
+    require('view/frontend/postView.php');
 }
+else {
+    echo 'Erreur : aucun identifiant de billet envoyé';
+}
+

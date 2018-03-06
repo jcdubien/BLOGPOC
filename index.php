@@ -4,10 +4,10 @@
 
 //Access to database
 
-require 'model/model.php';
+require 'model/frontend.php';
 
 
 $articles=getPosts();
 
 // Data display
-require 'view/view.php';
+require 'view/frontend/listPostsView.php';
