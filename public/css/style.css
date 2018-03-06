@@ -4,7 +4,7 @@
     text-align: center;
 }
 
-header {
+.header {
     height:150px;
     display:flex;
     justify-content: space-around;
@@ -20,4 +20,10 @@ footer {
 
 h2 {
     text-decoration-color: red;
+}
+
+.form {
+    display:flex;
+    justify-content:space-around;
+
 }
