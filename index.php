@@ -1,13 +1,19 @@
-
 <?php
+require('controller/controller.php');
 
-
-//Access to database
-
-require 'model/frontend.php';
-
-
-$articles=getPosts();
-
-// Data display
-require 'view/frontend/listPostsView.php';
+if (isset($_GET['action'])) {
+    if ($_GET['action'] == 'listPosts') {
+        listPosts();
+    }
+    elseif ($_GET['action'] == 'post') {
+        if (isset($_GET['id']) && $_GET['id'] > 0) {
+            post();
+        }
+        else {
+            echo 'Erreur : aucun identifiant de billet envoyé';
+        }
+    }
+}
+else {
+    listPosts();
+}
