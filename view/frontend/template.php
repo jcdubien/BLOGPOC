@@ -44,7 +44,7 @@
                  <div id="navbar" class="collapse navbar-collapse">
                        <ul class="nav navbar-nav">
                          <li class="active"><a href="index.php">Accueil</a></li>
-                         <li><a href="index.php?action=auteur">A propos de l'auteur</a></li>
+                         <li><a href="https://fr.wikipedia.org/wiki/Michel_Houellebecq">A propos de l'auteur</a></li>
                          <li><a href="tel:0690212201">Contact</a></li>
                         </ul>
                 </div>

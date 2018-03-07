@@ -1,17 +1,5 @@
 {
-    "name": "jcdubien/blogpoc",
-    "description": "Projet d'\u0000laboration d'un blog pour un \u0000crivain",
-    "type": "project",
     "require": {
-        "tinymce/tinymce": "^4.7",
-        "twbs/bootstrap": "^4.0"
-        
-    },
-    "license": "GNU",
-    "authors": [
-        {
-            "name": "JeanCharles Dubien",
-            "email": "jcdubien@gmail.com"
-        }
-    ]
+        "tinymce/tinymce": "^4.7"
+    }
 }

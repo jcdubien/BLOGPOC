@@ -29,8 +29,11 @@
         }
         ?>
 
-        <h3>Vos réactions</h3>
+        <div class="formulaire">
 
+        
+
+        
         <form action="index.php?action=addComment&amp;id=<?= $post['id'] ?>" method="post">
             <div>
                 <label for="author">Auteur</label><br />
@@ -44,6 +47,7 @@
                 <input type="submit" />
             </div>
         </form>
+        </div>
     </body>
 
 <?php $content=ob_get_clean(); ?>

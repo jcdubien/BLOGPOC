@@ -4,7 +4,7 @@
     text-align: center;
 }
 
-.header {
+header {
     height:150px;
     display:flex;
     justify-content: space-around;
@@ -22,8 +22,9 @@ h2 {
     text-decoration-color: red;
 }
 
-.form {
+.formulaire {
     display:flex;
     justify-content:space-around;
-
+    border-top: 1px solid #ccc;
+    padding-top: 10px;
 }
