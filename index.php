@@ -1,4 +1,6 @@
 <?php
+
+
 require('controller/frontend.php');
 
 if (isset($_GET['action'])) {
@@ -22,7 +24,8 @@ if (isset($_GET['action'])) {
                 echo 'Erreur : tous les champs ne sont pas remplis !';
             }}}
         
-}
+}   
+    
 else {
     listPosts();
 }

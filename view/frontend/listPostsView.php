@@ -1,4 +1,4 @@
-<html>
+
 
 <?php $title = 'Liste des actualités'; ?>
 
@@ -17,7 +17,7 @@
                 <p>
                     <?= nl2br(htmlspecialchars($data['content'])) ?>
                     <br />
-                    <em><a href="/BLOG/post.php?id=<?= $data['id'] ?>">Commentaires</a></em>
+                    <em><a href="/BLOG/index.php?action=post&amp;id=<?= $data['id'] ?>=<?= $data['id'] ?>">Commentaires</a></em>
                 </p>
             </div>
         <?php
@@ -29,7 +29,7 @@
 
 <?php require('template.php') ?>
 
-</html>
+
 
 
 

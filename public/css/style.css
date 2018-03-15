@@ -13,9 +13,13 @@ header {
     background-image: url(alaska.jpg);
 }
 
-footer {
+/*footer {
     display: flex;
     justify-content: space-around;
+}*/
+
+.news{
+    margin:auto;
 }
 
 h2 {

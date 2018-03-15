@@ -4,7 +4,7 @@
 
 <html>
 <head>
-
+<body>   
  <meta charset="utf-8" />
     <!-- Latest compiled and minified CSS -->
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
@@ -16,6 +16,13 @@
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
 
 <link rel="stylesheet" href="public/css/style.css">
+
+<script src="D:\wamp\www\BLOG\vendor\tinymce\tinymce\tinymce.min.js"></script>
+<script type="text/javascript">
+  tinymce.init({
+    selector: '#post'
+  });
+</script>
 
     <title><?= $title ?></title>
 
@@ -51,13 +58,18 @@
             </div>
         </nav>
         
-   <body>     
+  
          <?= $content ?>
-   </body>
+  
 
     <footer class="footer">
-         <div>Conçu avec application et le soutien éclairé de <a href="https://openclassrooms.com/">OpenClassrooms</a></div>
-         <a href ="index.php?action=admin">Administration</a>
-    </footer>
 
+         <div class="row">
+            <div class="col-sm4">Conçu avec application et le soutien éclairé de <a href="https://openclassrooms.com/">OpenClassrooms</a></div>
+<br/>
+            <div class="col-sm4"><a href ="\BLOG\view\backend\menuBackend.php">Administration</a></div>
+         </div>
+
+    </footer>
+    </body>
 </html>
