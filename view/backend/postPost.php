@@ -3,13 +3,16 @@
 
 <?php ob_start(); ?>
 
- <form action="index.php?action=postComment&amp;id=<?= $post['id'] ?>" method="post">
+ <form action="\BLOG\index.php?action=postPost&amp;id=<?= $post['id'] ?>" method="post">
 
     <div class="row">
                 
                 <div class="col-lg-12">  
-                    <label for="post">Auteur</label><br />
-                    <textarea id="post">Votre billet</textarea>
+                    <label for="title">Titre</label><br />
+                    <input type="text" id="title" name="title"></text></br>
+                    <label for="post">Votre billet</label><br />
+                    <textarea id="post" name="post"></textarea>
+                    <input type='submit' value='Envoyer'>
                 </div>
         </div>
 
@@ -22,4 +25,4 @@
 
 <?php $content=ob_get_clean(); ?>
 
-<?php require('/BLOG/view/frontend/template.php') ?>
+<?php require('template.php') ?>

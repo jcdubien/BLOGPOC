@@ -28,3 +28,10 @@ function addComment($postId, $author, $comment)
         header('Location: index.php?action=post&id=' . $postId);
     }
 }
+
+function sendPost($title,$content,$creation_date) {
+
+    postPost($title,$content,$creation_date);
+    
+    require('view/backend/menuBackend.php');
+}
