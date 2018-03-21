@@ -3,7 +3,7 @@
 
 <?php ob_start(); ?>
 
- <form action="postPost.php" method="post">
+ <form action="\BLOG\index.php" method="post">
 
     <div class="row">
                 

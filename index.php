@@ -20,7 +20,7 @@ if (isset($_GET['action'])) {
         if (isset($_POST['choix']))  {
             switch($_post) {
                 case 'post':
-                postpost($_POST());
+                postpost();
                 break;
               
                 case 'moderate':
@@ -38,6 +38,14 @@ if (isset($_GET['action'])) {
 
     elseif ($_GET['action'] == 'postpost') {
         sendPost($_POST['title'],$_POST['']);
+    }
+
+    elseif ($_POST['choix'] == 'post') {
+        require('postPost.php');
+    }
+
+    elseif ($_POST['choix'] == 'moderate') {
+        require('checkCommment.php');
     }
 
     elseif ($_GET['action'] == 'addComment') {

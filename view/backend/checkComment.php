@@ -1,4 +1,4 @@
-<?php $title = 'Mettre en ligne un post'; ?>
+<?php $title = 'Modérer un commentaire'; ?>
 
 
 <?php ob_start(); ?>
