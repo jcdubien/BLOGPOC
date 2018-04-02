@@ -3,25 +3,52 @@
 
 <?php ob_start(); ?>
 
+<link rel="stylesheet" href="/BLOG/public/css/style.css">
+
  <form action="\BLOG\index.php" method="post">
 
-    <div class="row">
+    <div class="row menu">
                 
-                <div class="col-lg-12">  
+                <div class="col-lg-6 col-sm-6 col-xs-6" >  
                   
-                     <p>Que souhaitez vous faire ?<br /></p>
+                     <h2>Que souhaitez vous faire ?<br /></h2>
                      <br />
-       <input type="radio" name="choix" value="post" id="post" /> <label for="post">Poster un billet</label><br />
-       
-       <input type="radio" name="choix" value="moderate" id="moderate" /> <label for="moderate">Modérer les commentaires signalés</label><br />
-       
-       <input type="submit" value="Envoyer" />
-   
+       <a href='index.php?action=makenewpost'>Poster un nouveau billet</a><br/>
+       <a href='index.php?action=listpostbackend'>Lister les billets pour suppression ou modification</a><br />
+      
 
 
 
                 </div>
-        </div>
+
+                <div class="col-lg-6 col-sm-6 col-xs-6" > 
+
+                <h2>Derniers commentaires signalés</h2>
+
+                <?php
+
+                $comment=listReportedComment();
+
+                foreach ($comment as $data) {
+                        ?>
+                        <div class="news">
+                        <p>
+                                <?= htmlspecialchars($data['author']) ?>
+                                <em>le <?= $data['comment_date_fr'] ?></em>
+                        </p>
+                        
+                        <p>
+                                <?= nl2br(htmlspecialchars($data['comment'])) ?>
+                                
+                                <em><a href="/BLOG/index.php?action=deletecomment&amp;id=<?= $data['id'] ?>">Supprimer</a></em>
+                        </p>
+
+                        </div>   
+                        <?php
+                }?>
+
+                
+        
 
  </form>
 
@@ -32,5 +59,5 @@
 
 <?php $content=ob_get_clean(); ?>
 
-<?php require('D:\wamp\www\BLOG\view\frontend\template.php') ?>
+<?php require('template.php') ?>
 

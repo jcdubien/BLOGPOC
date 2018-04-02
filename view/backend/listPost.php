@@ -1,6 +1,5 @@
 
-
-<?php $title = 'Liste des actualités'; ?>
+<?php $title = 'Liste des posts et supprimer / modifier '; ?>
 
 <?php ob_start(); ?>
 
@@ -15,9 +14,9 @@
                 </h3>
                 
                 <p>
-                    <?= nl2br(htmlspecialchars($data['content'])) ?>
+                    <?= nl2br(htmlspecialchars($data['content'])) ?><a href="#"> Supprimer </a><a href="#"> Modifier </a>
                     <br />
-                    <em><a href="/BLOG/index.php?action=post&amp;id=<?= $data['id'] ?>">Commentaires</a></em>
+                    <em><a href="/BLOG/index.php?action=post&amp;id=<?= $data['id'] ?>=<?= $data['id'] ?>">Commentaires</a></em>
                 </p>
             </div>
         <?php
@@ -28,13 +27,3 @@
 <?php $content=ob_get_clean(); ?>
 
 <?php require('template.php') ?>
-
-
-
-
-
-       
-
-
-
-

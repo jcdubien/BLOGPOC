@@ -34,9 +34,36 @@ h2 {
 }
 
 body {
-    padding-top: 50px;
+    padding:50px;
+    margin:auto;
+    
   }
+ 
   .starter-template {
     padding: 40px 15px;
+    text-align: center;
+  }
+
+ /*.menu{
+display:flex;
+justify-content:space-around;
+margin:auto;
+text-align: center;
+
+
+  }*/
+
+  .container {
+    padding-right: 15px;
+    padding-left: 15px;
+    margin-right: auto;
+    margin-left: auto;
+    text-align: center;
+
+  }
+
+  
+  [class*="col-"] {
+    line-height: 40px;
     text-align: center;
   }

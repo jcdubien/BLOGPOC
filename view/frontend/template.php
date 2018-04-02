@@ -4,7 +4,6 @@
 
 <html>
 <head>
-<body>   
  <meta charset="utf-8" />
     <!-- Latest compiled and minified CSS -->
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
@@ -27,10 +26,9 @@
     <title><?= $title ?></title>
 
 </head>
+
+    <body>   
     
-        <header>
-             <h1>Jean Forteroche - Billet simple pour l'Alaska</h1>
-        </header>
 
          <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
     <!-- Include all compiled plugins (below), or include individual files as needed -->
@@ -67,9 +65,9 @@
          <div class="row">
             <div class="col-sm4">Conçu avec application et le soutien éclairé de <a href="https://openclassrooms.com/">OpenClassrooms</a></div>
 <br/>
-            <div class="col-sm4"><a href ="\BLOG\view\backend\menuBackend.php">Administration</a></div>
+            <div class="col-sm4"><a href ="\BLOG\index.php?action=menubackend">Administration</a></div>
          </div>
 
     </footer>
-    </body>
+</body>
 </html>
