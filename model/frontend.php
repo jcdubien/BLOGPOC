@@ -79,7 +79,7 @@ function validateComment($id) {
 function deleteComment($id){
     $db=dbConnect();
     $comment=$db->prepare('DELETE FROM t_comment WHERE id=?');
-    die(print_r($comment->errorInfo()));
+    /*die(print_r($comment->errorInfo()));*/
     $affectedLines=$comment->execute(array($id));
     return $affectedLines;
 
@@ -88,7 +88,7 @@ function deleteComment($id){
 function postPost($title,$content){
     $db=dbConnect();
     $article=$db->prepare('INSERT INTO t_article(title,content,creation_date) VALUES(:title,:content,NOW())');
-    die(print_r($article->errorInfo()));
+    /*die(print_r($article->errorInfo()));*/
     $affectedLines=$article->execute(array(
         'title'=>$title,
         'content'=>$content,

@@ -27,9 +27,11 @@ function eraseComment($id){
     }
     
     else {
-        header('Location:index.php?action=checkcomment');
+        header('Location:index.php?action=postbackend');
     }
     }
 
-
-
+function markBadComment($id) {
+    reportBadComment($id);
+    header('Location:index.php?action=post&id=' . $id);
+}

@@ -94,11 +94,21 @@ switch($menu) {
     break;
     
     case "deletecomment":
-        eraseComment();
+        eraseComment($_GET['id']);
     break;
 
     case "report":
-        reportBadComment($_GET['id']);
+        markBadComment($_GET['id']);
+        
+    break;
+
+    case "postbackend":
+        postBackEnd();
+        
+    break;
+
+    case "postnew":
+        sendPost($_POST['title'],$_POST['post']);
     break;
 
     default:

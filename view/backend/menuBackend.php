@@ -40,7 +40,7 @@
                         <p>
                                 <?= nl2br(htmlspecialchars($data['comment'])) ?>
                                 
-                                <em><a href="/BLOG/index.php?action=deletecomment&amp;id=<?= $data['id'] ?>">Supprimer</a></em>
+                                <em><a class=mark href="/BLOG/index.php?action=deletecomment&amp;id=<?= $data['id'] ?>">Supprimer</a></em>
                         </p>
 
                         </div>   

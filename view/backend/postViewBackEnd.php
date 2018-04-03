@@ -22,7 +22,7 @@
             {
             ?>
                 <p><?= htmlspecialchars($comment['author']) ?> le <?= $comment['comment_date_fr'] ?></p>
-                <p><?= nl2br(htmlspecialchars($comment['comment'])) ?><a class=mark href="index.php?action=report&amp;id=<?= $post['id']?>">Signaler</a></p>
+                <p><?= nl2br(htmlspecialchars($comment['comment'])) ?><a class=mark href="index.php?action=deletecomment&amp;id=<?= $post['id']?>">Supprimer</a></p>
             <?php
             }
             ?>

@@ -3,9 +3,9 @@
 
 <?php ob_start(); ?>
 
-<section class="col-sm-8">
+<section class="col-lg-12">
 
-    <form class="formulaire" action="\BLOG\index.php?action=postNew&amp;id=<?= $post['id'] ?>" method="post">
+    <form class="formulaire" action="\BLOG\index.php?action=postnew" method="post">
 
     <legend>Postez votre message</legend>
 
@@ -15,9 +15,9 @@
 
         <div class="form-group">
 
-            <label for="text" class="col-lg-2 control-label">Titre</label>
+            <label for="text" class="col-lg-12 control-label">Titre</label>
 
-            <div class="col-lg-10">
+            <div class="col-lg-12">
 
                 <input type="text" class="form-control" id="text" name="title" >
 
@@ -31,9 +31,9 @@
 
             <div class="form-group">
 
-                <label for="textarea" class="col-lg-2 control-label">Message</label>
+                <label for="textarea" class="col-lg-12 control-label">Message</label>
 
-                <div class="col-lg-10">
+                <div class="col-lg-12">
 
                     <input type="textarea" class="form-control" id="textarea" name="post">
 

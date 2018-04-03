@@ -18,24 +18,23 @@ header {
     justify-content: space-around;
 }*/
 
-.news{
-    margin:auto;
-}
 
 h2 {
     text-decoration-color: red;
 }
 
 .formulaire {
-    display:flex;
-    justify-content:space-around;
+    margin-top: 100 px;
     border-top: 1px solid #ccc;
     padding-top: 10px;
+    
 }
 
 body {
     padding:50px;
     margin:auto;
+    text-align:center;
+   
     
   }
  
@@ -66,4 +65,19 @@ text-align: center;
   [class*="col-"] {
     line-height: 40px;
     text-align: center;
+  }
+
+  .news {
+
+    border-bottom: 1px solid #ccc
+  }
+
+  .mark {
+      margin-left: 10 px;
+      text-decoration-color: firebrick;
+  }
+
+  .fieldset {
+
+    text-align:center;
   }
