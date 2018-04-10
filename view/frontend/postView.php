@@ -1,4 +1,5 @@
-<?php $title = $post; ?>
+
+<?php $title = $post['title']; ?>
 
 <?php ob_start(); ?>
 
@@ -22,7 +23,7 @@
             {
             ?>
                 <p><?= htmlspecialchars($comment['author']) ?> le <?= $comment['comment_date_fr'] ?></p>
-                <p><?= nl2br(htmlspecialchars($comment['comment'])) ?><a class=mark href="index.php?action=report&amp;id=<?= $post['id']?>">Signaler</a></p>
+                <p><?= nl2br(htmlspecialchars($comment['comment'])) ?><a class=mark href="index.php?action=report&amp;postID=<?= $comment['post_id'];?>&amp;id=<?= $comment['id']?>">Signaler</a></p>
             <?php
             }
             ?>

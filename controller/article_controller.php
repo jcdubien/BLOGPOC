@@ -1,4 +1,6 @@
-<?php
+<?php 
+
+
 
 
 
@@ -24,8 +26,6 @@ function post(){
 function sendPost($title,$content) {
 
     postPost($title,$content);
-    echo $title;
-    echo $content;
     require('view/backend/menuBackend.php');
 }
 

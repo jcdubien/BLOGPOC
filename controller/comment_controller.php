@@ -1,4 +1,6 @@
-<?php
+<?php 
+
+
 
 
 
@@ -17,21 +19,36 @@ function addComment($postId, $author, $comment)
 function checkReportedComment(){
 
     $comment=listReportedComment();
+    return $comment;
     require('/view/backend/checkReported.php');
 }
 
-function eraseComment($id){
+function eraseComment($id,$postId){
     $affectedLine=deleteComment($id);
     if ($affectedLine==false) {
         echo('Erreur : aucun commentaire n\'a été supprimé');
     }
     
     else {
-        header('Location:index.php?action=postbackend');
+        header('Location:index.php?action=menubackend&id='. $postId);
     }
     }
 
-function markBadComment($id) {
+
+function confirmComment($id,$postID) {
+    $affectedLine=validateComment($id);
+    if ($affectedLine==false) {
+        echo('Erreur : aucun commentaire n\'a été validé');
+    }
+    
+    else {
+        header('Location:index.php?action=menubackend&id='. $postId);
+    }
+    }
+
+
+
+function markBadComment($id,$postID) {
     reportBadComment($id);
-    header('Location:index.php?action=post&id=' . $id);
+    header('Location:index.php?action=post&id=' . $postID);
 }

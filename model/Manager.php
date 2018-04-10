@@ -1,5 +1,11 @@
-<?php
+<?php 
+
 namespace Jcdubien\Blog\Model;
+
+
+
+
+
 class Manager
 {
 	protected function dbConnect()

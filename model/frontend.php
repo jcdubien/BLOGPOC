@@ -1,4 +1,6 @@
-<?php
+<?php 
+
+
 
 
 // Return all articles
@@ -24,7 +26,7 @@ function getPost($postId) {
 function getComments($postId)
 {
     $db = dbConnect();
-    $comments = $db->prepare('SELECT id, author, comment,DATE_FORMAT(comment_date, \'%d/%m/%Y à %Hh%imin%ss\') AS comment_date_fr FROM t_comment WHERE post_id = ? ORDER BY comment_date DESC');
+    $comments = $db->prepare('SELECT id, post_id, author, comment,DATE_FORMAT(comment_date, \'%d/%m/%Y à %Hh%imin%ss\') AS comment_date_fr FROM t_comment WHERE post_id = ? ORDER BY comment_date DESC');
     $comments->execute(array($postId));
 
     return $comments;
@@ -98,8 +100,18 @@ function postPost($title,$content){
 
 function listReportedComment(){
 $db=dbConnect();
-$comment=$db->query('SELECT id,author,comment,DATE_FORMAT(comment_date, \'%d/%m/%Y à %Hh%imin%ss\') AS comment_date_fr FROM t_comment WHERE reported=1 ORDER BY comment_date DESC LIMIT 0,10 ');
+$comment=$db->query('SELECT id,author,comment,post_id,DATE_FORMAT(comment_date, \'%d/%m/%Y à %Hh%imin%ss\') AS comment_date_fr FROM t_comment WHERE reported=1 ORDER BY comment_date DESC LIMIT 0,10 ');
 return $comment;
+}
+
+function addMember($pseudo,$pass){
+
+    // Insertion
+$req = $bdd->prepare('INSERT INTO users(pseudo, pass) VALUES(:pseudo, :pass)');
+$req->execute(array(
+    'pseudo' => $pseudo,
+    'pass' => $pass_hache,
+    ));
 }
 
 function dbConnect() {

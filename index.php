@@ -1,5 +1,8 @@
 <?php
 
+session_start();
+
+
 
 
 require('model/frontend.php');
@@ -71,7 +74,7 @@ switch($menu) {
     break;
 
     case "menubackend":
-        listReportedComment();       
+               
         showMenu();
     break;
 
@@ -94,11 +97,15 @@ switch($menu) {
     break;
     
     case "deletecomment":
-        eraseComment($_GET['id']);
+        eraseComment($_GET['id'],$_GET['postID']);
     break;
 
+    case "confirmcomment":
+        confirmComment($_GET['id'],$_GET['postID']);
+    break;
+    
     case "report":
-        markBadComment($_GET['id']);
+        markBadComment($_GET['id'],$_GET['postID']);
         
     break;
 
@@ -109,6 +116,10 @@ switch($menu) {
 
     case "postnew":
         sendPost($_POST['title'],$_POST['post']);
+    break;
+
+    case "loginSuccess":
+        loginSuccess();
     break;
 
     default:
