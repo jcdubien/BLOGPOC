@@ -27,7 +27,7 @@
 
 </head>
 
-<body>   
+<body class="backendTemplate">   
        
    
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
@@ -48,19 +48,27 @@
 
                  <div id="navbar" class="collapse navbar-collapse">
                        <ul class="nav navbar-nav">
-                         <li class="active"><a href="index.php">Accueil</a></li>
-                         <li><a href="https://fr.wikipedia.org/wiki/Michel_Houellebecq">A propos de l'auteur</a></li>
-                         <li><a href="tel:0690212201">Contact</a></li>
+                            <li class="active"><a href="index.php">Accueil</a></li>
+                            <li><a href="https://fr.wikipedia.org/wiki/Michel_Houellebecq">A propos de l'auteur</a></li>
+                            <li><a href="tel:0690212201">Contact</a></li>
+                                  
                         </ul>
+
                 </div>
             </div>
         </nav>
         
         
          <?= $content ?>
-        
-  
 
+<footer class="footer">
+
+<div class="row">
+   
+   <div class="col-sm4"><a href ="\BLOG\index.php?action=menubackend">Retour au menu d'administration principal</a></div>
+</div>
+
+</footer> 
 
 
     

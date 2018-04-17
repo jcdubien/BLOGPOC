@@ -1,13 +1,11 @@
-<?php $title = 'Mettre en ligne un post'; ?>
-
 
 <?php ob_start(); ?>
 
 <section class="col-lg-12">
 
-    <form class="formulaire" action="\BLOG\index.php?action=changepost&id=<?=$id?>" method="post">
+    <form class="formulaire" action="\BLOG\index.php?action=opensession" method="post">
 
-    <legend>Postez votre message</legend>
+    <legend>Vous identifier</legend>
 
     <fieldset>
 
@@ -15,11 +13,11 @@
 
         <div class="form-group">
 
-            <label for="text" class="col-lg-12 control-label" >Titre</label>
+            <label for="text" class="col-lg-12 control-label">Pseudo</label>
 
             <div class="col-lg-12">
 
-                <input type="text" class="form-control" id="text" name="title" value="<?= $post['title'];?>" >
+                <input type="text" class="form-control" id="text" name="pseudo" >
 
             </div>
 
@@ -31,16 +29,23 @@
 
             <div class="form-group">
 
-                <label for="textarea" class="col-lg-12 control-label">Message</label>
+                <label for="text" class="col-lg-12 control-label">Mot de passe</label>
 
                 <div class="col-lg-12">
 
-                    <textarea class="form-control" id="textarea" name="post" ><?=$post['content']?></textarea> <br/>
+                    <input type="password" class="form-control" id="text" name="password" > <br/>
                 </div>
 
             </div>
 
     </div>
+
+     <div class="row">
+     
+    </div>
+
+</div>
+
 
     <button class="btn btn-primary" type="submit">Envoyer</button>
 

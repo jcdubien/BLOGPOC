@@ -1,13 +1,13 @@
-<?php $title = 'Utilisateur enregistré avec succès'; ?>
+<?php $title = 'Utilisateur non enregistrable'; ?>
 
 
 <?php ob_start(); ?>
 
 <section class="col-lg-12">
 
-    <h2>Vous avez été enregistré avec succès<h2>
-    <br/>
-    <p>Bienvenue <?=$_SESSION['pseudo'] ?> !</p>
+    <h2>Vos mots de passe ne coincident pas , quelque chose s'est mal passé !<h2>
+    
+    
     
 </section>
        

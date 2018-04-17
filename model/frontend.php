@@ -49,7 +49,7 @@ function postComment($postId,$author,$comment) {
     return $affectedLines;
 }
 
-function deletePost($id) {
+function erasePost($id) {
     $db=dbConnect();
     $article=$db->prepare('DELETE FROM t_article WHERE id=?');
     $affectedLines=$article->execute(array($id));
@@ -57,10 +57,11 @@ function deletePost($id) {
 
 }
 
-function modifyPost($id,$comment) {
+function editPost($id,$title,$content) {
     $db=dbConnect();
-    $article->$db->prepare('UPDATE t_comment SET comment=? WHERE id=?');
-    $affectedLine=$article->execute(array($comment,$id));
+    $article=$db->prepare('UPDATE t_article SET title=?,content=? WHERE id=?');
+    $affectedLine=$article->execute(array($title,$content,$id));
+    return $affectedLine;
 
 }
 
@@ -104,14 +105,40 @@ $comment=$db->query('SELECT id,author,comment,post_id,DATE_FORMAT(comment_date, 
 return $comment;
 }
 
-function addMember($pseudo,$pass){
+function addMember($pseudo,$pass,$email){
 
+$passHash=password_hash($pass);
     // Insertion
-$req = $bdd->prepare('INSERT INTO users(pseudo, pass) VALUES(:pseudo, :pass)');
-$req->execute(array(
+$req = $bdd->prepare('INSERT INTO users(pseudo, pass,email ) VALUES(:pseudo, :pass , :email)');
+$affectedLine=$req->execute(array(
     'pseudo' => $pseudo,
-    'pass' => $pass_hache,
+    'pass' => $passHash,
+    'email'=>$email,
     ));
+return $affectedLine;
+}
+
+function isMember($pseudo) {
+
+$req = $bdd->prepare('SELECT id,pseudo,pass,email FROM users WHERE pseudo=:pseudo');
+$affectedLine=$req->execute(array(
+    'pseudo'=>$pseudo,
+));
+return $affectedLine;
+
+}
+
+
+function listMember($pseudo){
+    $req=$bdd->query('SELECT users(id,pseudo,pass,email) ORDER BY id');
+    return $req;
+    
+    
+    }
+
+function setSession($pseudo,$password){
+    
+
 }
 
 function dbConnect() {

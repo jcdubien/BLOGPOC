@@ -51,6 +51,15 @@
                          <li class="active"><a href="index.php">Accueil</a></li>
                          <li><a href="https://fr.wikipedia.org/wiki/Michel_Houellebecq">A propos de l'auteur</a></li>
                          <li><a href="tel:0690212201">Contact</a></li>
+                                                  <?php
+                            if (isset($_SESSION['pseudo'])) {
+                                ?><li><a class=disconnect href="index.php?action=logout"><?=$_SESSION['pseudo']?>
+                                <em> Deconnexion</em></a></li>
+                                <?php
+                            } else {
+                                ?> <li><a href="index.php?action=login">S'identifier</a></li>
+                                <li><a href="index.php?action=createaccount">S'enregistrer</a></li><?php
+                            }?>
                         </ul>
                 </div>
             </div>
@@ -65,7 +74,10 @@
          <div class="row">
             <div class="col-sm4">Conçu avec application et le soutien éclairé de <a href="https://openclassrooms.com/">OpenClassrooms</a></div>
 <br/>
-            <div class="col-sm4"><a href ="\BLOG\index.php?action=menubackend">Administration</a></div>
+
+           <?php if (isset($_SESSION['pseudo']) AND ($_SESSION['pseudo']=='admin') && (password_hash($_SESSION['password'],PASSWORD_DEFAULT)==='$2y$10$p0mytbGheHU1a5PTGedcn.98lo9f06vEXiyves1AHCOPQCcPGPKve')) {?>
+            <div class="col-sm4"><a href ="\BLOG\index.php?action=menubackend">Administration</a></div><?php
+            }?>
          </div>
 
     </footer>

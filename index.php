@@ -118,10 +118,42 @@ switch($menu) {
         sendPost($_POST['title'],$_POST['post']);
     break;
 
+    case "deletepost":
+        deletePost($_GET['id']);
+    break;
+
+    case "modifypost":
+        modifyPost($_GET['id']);
+    break;
+
+    case "changepost":
+        changePost($_GET['id'],$_POST['title'],$_POST['post']);
+    break;
+
+    case "login":
+        login();
+    break;
+
+    case "opensession":
+        openSession($_POST['pseudo'],$_POST['password'],$_POST['passwordcheck']);
+    break;
+
     case "loginSuccess":
         loginSuccess();
     break;
 
+    case "logout":
+        logout();
+    break;
+
+    case 'createaccount':
+        createAccount();
+    break;
+
+    case 'addmember':
+        addMemberController($_POST['pseudo'],$_POST['password'],$_POST['passwordcheck'],$_POST['email']);
+    break;
+    
     default:
         listPosts();
 }

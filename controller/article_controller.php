@@ -40,3 +40,20 @@ function postBackEnd(){
     $comments = getComments($_GET['id']);
     require('view/backend/postViewBackEnd.php');
 }
+
+function deletePost($id) {
+    erasePost($id);
+    header('Location:index.php?action=listpostbackend');
+}
+
+function modifyPost($id){
+    $post=getPost($_GET['id']);
+    require('view/backend/modifyPost.php');
+
+}
+
+function changePost($id,$title,$content){
+    editPost($id,$title,$content);
+    header('Location:index.php?action=listpostbackend');
+
+}
