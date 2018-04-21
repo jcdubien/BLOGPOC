@@ -108,8 +108,10 @@ return $comment;
 function addMember($pseudo,$pass,$email){
 
 $passHash=password_hash($pass);
+
     // Insertion
-$req = $bdd->prepare('INSERT INTO users(pseudo, pass,email ) VALUES(:pseudo, :pass , :email)');
+$db=dbConnect();
+$req = $db->prepare('INSERT INTO users(pseudo, pass,email ) VALUES(:pseudo, :pass , :email)');
 $affectedLine=$req->execute(array(
     'pseudo' => $pseudo,
     'pass' => $passHash,
@@ -136,10 +138,7 @@ function listMember($pseudo){
     
     }
 
-function setSession($pseudo,$password){
-    
 
-}
 
 function dbConnect() {
 

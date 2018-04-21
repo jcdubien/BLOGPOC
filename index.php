@@ -135,7 +135,11 @@ switch($menu) {
     break;
 
     case "opensession":
-        openSession($_POST['pseudo'],$_POST['password'],$_POST['passwordcheck']);
+        openSession($_POST['pseudo'],$_POST['password']);
+    break;
+
+    case "opensessionpostlog":
+        openSession($_GET['pseudo'],$_GET['password']);
     break;
 
     case "loginSuccess":

@@ -12,58 +12,48 @@ function addMemberController($pseudo,$password,$passwordCheck,$email){
 
     if ($password===$passwordcheck) {
 
-        addMember($pseudo,$password,$email);
+        
         $isAdded=addMember($pseudo,$password,$email);
 
         if ($isAdded) {
             
-            $_SESSION['pseudo']= $pseudo;
+            require('index.php?action=opensessionpostlog');
+            
+
+
+        } 
         
-            $_SESSION['password']=password_hash($password,PASSWORD_DEFAULT);
-    
-            $passwordHash=password_hash($password,PASSWORD_DEFAULT);
-
-
-        } else {
-            ?>Le membre n'a pas pû être ajouté<?php
+        else {
+            header('Location:view/backend/loginFail.php');}
         }
                 
-        header('Location:index.php');}
-
-    else {
-
-    require('view/backend/loginfail.php');
-
-    }
-
-    
-    header('Location:index.php?action=success');
-
+    else {header('Location:view/backend/loginFail.php');}
 }
 
 function login(){
+
     require('view/backend/login.php');
 
 }
 
-function openSession($pseudo,$password,$passwordcheck,$mail) {
+function openSession($pseudo,$password) {
 
-    if ($password===$passwordcheck) {
+    $registeredMember=isMember($pseudo);
 
-    $_SESSION['pseudo']= $pseudo;
-    
-    $_SESSION['password']=password_hash($password,PASSWORD_DEFAULT);
+    if (isset($registerdMember) && ($registeredMember['password']===$password)) {
 
-    $passwordHash=password_hash($password,PASSWORD_DEFAULT);
-    
-    header('Location:index.php');}
+        $_SESSION['pseudo']= $pseudo;
+        
+          
+        header('Location:index.php');}
 
-    else {
+        else {
 
-    require('view/backend/loginfail.php');
+        require('view/backend/loginfail.php');
+
+        }
     }
 
-}
 
 function logout(){
 
