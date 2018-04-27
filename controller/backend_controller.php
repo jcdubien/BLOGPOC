@@ -10,25 +10,22 @@ function addMemberController($pseudo,$password,$passwordCheck,$email){
     // Hachage du mot de passe
 
 
-    if ($password===$passwordcheck) {
+    
 
-        
+        addMember($pseudo,$password,$email);
         $isAdded=addMember($pseudo,$password,$email);
 
         if ($isAdded) {
             
-            require('index.php?action=opensessionpostlog');
+            header('Location:index.php?action=opensessionpostlog&pseudo='.$pseudo);
             
-
-
         } 
         
         else {
             header('Location:view/backend/loginFail.php');}
         }
                 
-    else {header('Location:view/backend/loginFail.php');}
-}
+   
 
 function login(){
 
@@ -36,11 +33,12 @@ function login(){
 
 }
 
-function openSession($pseudo,$password) {
+function openSession($pseudo) {
 
     $registeredMember=isMember($pseudo);
+    
 
-    if (isset($registerdMember) && ($registeredMember['password']===$password)) {
+    if (isset($registerdMember)) {
 
         $_SESSION['pseudo']= $pseudo;
         

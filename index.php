@@ -4,8 +4,10 @@ session_start();
 
 
 
-
-require('model/frontend.php');
+require('model/manager.php');
+require('model/backendManager.php');
+require('model/commentManager.php');
+require('model/postManager.php');
 require('controller/article_controller.php');
 require('controller/comment_controller.php');
 require('controller/backend_controller.php');
@@ -135,11 +137,11 @@ switch($menu) {
     break;
 
     case "opensession":
-        openSession($_POST['pseudo'],$_POST['password']);
+        openSession($_POST['pseudo']);
     break;
 
     case "opensessionpostlog":
-        openSession($_GET['pseudo'],$_GET['password']);
+        openSession($_GET['pseudo']);
     break;
 
     case "loginSuccess":
@@ -155,7 +157,7 @@ switch($menu) {
     break;
 
     case 'addmember':
-        addMemberController($_POST['pseudo'],$_POST['password'],$_POST['passwordcheck'],$_POST['email']);
+        addMemberController($_POST['pseudo'],$_POST['password'],$_POST['passwordcheck'],$_POST['mail']);
     break;
     
     default:

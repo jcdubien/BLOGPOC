@@ -107,9 +107,8 @@ return $comment;
 
 function addMember($pseudo,$pass,$email){
 
-$passHash=password_hash($pass);
+$passHash=password_hash($pass,PASSWORD_DEFAULT);
 
-    // Insertion
 $db=dbConnect();
 $req = $db->prepare('INSERT INTO users(pseudo, pass,email ) VALUES(:pseudo, :pass , :email)');
 $affectedLine=$req->execute(array(
@@ -120,9 +119,14 @@ $affectedLine=$req->execute(array(
 return $affectedLine;
 }
 
-function isMember($pseudo) {
+function checkPassword(){
+    
 
-$req = $bdd->prepare('SELECT id,pseudo,pass,email FROM users WHERE pseudo=:pseudo');
+}
+
+function isMember($pseudo) {
+$db=dbConnect();
+$req = $db->prepare('SELECT id,pseudo,pass,email FROM users WHERE pseudo=:pseudo');
 $affectedLine=$req->execute(array(
     'pseudo'=>$pseudo,
 ));
@@ -132,7 +136,8 @@ return $affectedLine;
 
 
 function listMember($pseudo){
-    $req=$bdd->query('SELECT users(id,pseudo,pass,email) ORDER BY id');
+    $db=dbConnect();
+    $req=$db->query('SELECT users(id,pseudo,pass,email) ORDER BY id');
     return $req;
     
     
