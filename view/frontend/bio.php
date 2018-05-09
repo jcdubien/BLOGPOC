@@ -12,7 +12,7 @@
 
 <br/>
 
-<img  style="float:left " src="public/css/michelbig.jpg"></img>
+<img  class="bioimage" src="public/css/michelbig.jpg"></img>
 
 <p><em>Jean FORTEROCHE</em>, le 26 février 1956 (acte de naissance), ou en 1958 (selon lui), 
 est un écrivain français. Poète, essayiste, romancier et réalisateur, il est, depuis la fin des années 1990,

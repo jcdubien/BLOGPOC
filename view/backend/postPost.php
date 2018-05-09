@@ -4,7 +4,7 @@
 
 <?php ob_start(); ?>
 
-<section class="col-lg-12">
+<section class="col-lg-12 col-sm-12 col-xs-12 col-md-12">
 
     <form class="formulaire" action="\BLOG\index.php?action=postnew" method="post">
 
@@ -16,9 +16,9 @@
 
         <div class="form-group">
 
-            <label for="text" class="col-lg-12 control-label">Titre</label>
+            <label for="text" class="col-lg-12 col-sm-12 col-xs-12 col-md-12 control-label">Titre</label>
 
-            <div class="col-lg-12">
+            <div class="col-lg-12 col-sm-12 col-xs-12 col-md-12">
 
                 <input type="text" class="form-control" id="text" name="title" >
 
@@ -32,9 +32,9 @@
 
             <div class="form-group">
 
-                <label for="textarea" class="col-lg-12 control-label">Message</label>
+                <label for="textarea" class="col-lg-12 col-sm-12 col-xs-12 col-md-12 control-label">Message</label>
 
-                <div class="col-lg-12">
+                <div class="col-lg-12 col-sm-12 col-xs-12 col-md-12">
 
                     <textarea class="form-control" id="textarea" name="post"></textarea> <br/>
                 </div>

@@ -10,13 +10,8 @@ header {
     justify-content: space-around;
     align-items: center;
     margin : auto;
-    background-image: url(alaska.jpg);
+    background-image: url('/BLOG/public/css/alaska.jpg');
 }
-
-/*footer {
-    display: flex;
-    justify-content: space-around;
-}*/
 
 
 h2 {
@@ -25,13 +20,13 @@ h2 {
 
 .formulaire {
     margin-top: 100 px;
-    border-top: 1px solid #ccc;
+    
     padding-top: 10px;
     
 }
 
 body {
-  background-image: "alaska.jpg";
+      
     padding:50px;
     margin:auto;
     text-align:center;
@@ -43,15 +38,6 @@ body {
     padding: 40px 15px;
     text-align: center;
   }
-
- /*.menu{
-display:flex;
-justify-content:space-around;
-margin:auto;
-text-align: center;
-
-
-  }*/
 
   .container {
     padding-right: 15px;
@@ -79,10 +65,7 @@ text-align: center;
     text-align: center;
   }
 
-  .news {
-
-    border-bottom: 1px solid #ccc
-  }
+  
 
   .mark {
       margin-left: 10 px;
@@ -103,8 +86,19 @@ text-decoration: deeppink;
 
   }
 
-  .idform {
+  .idform   {
     background-color: red;
     margin:auto;
     text-align:center;
+  }
+
+  .bouton {
+    margin-top:30 px;
+  }
+
+  .bioimage {
+
+    float:left;
+    border: 1px,solid,black;
+    margin-right: 5px;
   }

@@ -19,13 +19,13 @@
 
         <link rel="stylesheet" href="public/css/style.css">
 
-        <script src="D:\wamp\www\BLOG\vendor\tinymce\tinymce\tinymce.min.js"></script>
+        <script src="\BLOG\vendor\tinymce\tinymce\tinymce.min.js"></script>
 
         <script type="text/javascript">
 
             tinymce.init({
                 
-                selector: '#post'
+                selector: 'textarea'
             });
         </script>
 
@@ -111,7 +111,7 @@
 
             <div class="row">
 
-                <div class="col-sm4">Conçu avec application et le soutien éclairé de <a href="https://openclassrooms.com/">OpenClassrooms</a></div>
+                <div class="col-lg-12 col-sm-12 col-xs-12 col-md-12">Conçu avec application et le soutien éclairé de <a href="https://openclassrooms.com/">OpenClassrooms</a></div>
                 
                 <br/>
 
@@ -119,11 +119,11 @@
                 <?php 
                 
                 $backendManager=new BackendManager;
-                
+
                 if (isset($_SESSION['pseudo']) && ($backendManager->isAdmin($_SESSION['pseudo'])===1) ) { ?>
 
                 
-                    <div class="col-sm4"><a href ="/BLOG/index.php?action=menubackend">Administration</a></div><?php
+                    <div class="col-lg-12 col-sm-12 col-xs-12 col-md-12"><a href ="/BLOG/index.php?action=menubackend">Administration</a></div><?php
 
                 }?>
 

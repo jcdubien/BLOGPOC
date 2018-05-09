@@ -47,7 +47,7 @@ if (($_SESSION['pseudo']=="admin")) {?>
                         </p>
                         
                         <p>
-                                <?= nl2br(htmlspecialchars($data['comment'])) ?>
+                                <?= nl2br($data['comment']) ?>
                                 
                                 <em><a class=mark href="/BLOG/index.php?action=deletecomment&amp;id=<?= $data['id'] ;?>&amp;postID=<?= $data['post_id']; ?>">Supprimer</a></em>
                                 <em><a class=mark href="/BLOG/index.php?action=confirmcomment&amp;id=<?= $data['id'] ;?>&amp;postID=<?= $data['post_id']; ?>">Valider</a></em>
@@ -59,7 +59,7 @@ if (($_SESSION['pseudo']=="admin")) {?>
 
         
         </form>
-        
+
         </div>
 
 <?php } else {?>

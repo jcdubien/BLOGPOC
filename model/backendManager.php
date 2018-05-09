@@ -9,7 +9,9 @@ class BackendManager extends Manager {
         $passHash=password_hash($pass,PASSWORD_DEFAULT);
 
         $db=$this->dbConnect();
+
         $req = $db->prepare('INSERT INTO users(pseudo, pass,email,is_admin) VALUES(:pseudo, :pass , :email, 0)');
+        
         $affectedLine=$req->execute(array(
             'pseudo' => $pseudo,
             'pass' => $passHash,
