@@ -31,6 +31,7 @@ h2 {
 }
 
 body {
+  background-image: "alaska.jpg";
     padding:50px;
     margin:auto;
     text-align:center;
@@ -57,7 +58,18 @@ text-align: center;
     padding-left: 15px;
     margin-right: auto;
     margin-left: auto;
+    
     text-align: center;
+
+  }
+
+  .bio {
+    padding-right: 15px;
+    padding-left: 15px;
+    margin-right: auto;
+    margin-left: auto;
+    
+    text-align: left;
 
   }
 
@@ -89,4 +101,10 @@ text-align: center;
   .disconnect {
 text-decoration: deeppink;
 
+  }
+
+  .idform {
+    background-color: red;
+    margin:auto;
+    text-align:center;
   }

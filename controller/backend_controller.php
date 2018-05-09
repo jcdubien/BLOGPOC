@@ -1,31 +1,52 @@
 <?php 
 
+require_once('model/backendManager.php');
+require_once('model/commentManager.php');
 
 function showMenu() {
-    $comment=listReportedComment();
+
+    $commentManager=new CommentManager;
+
+    $comment=$commentManager->listReportedComment();
+
     require('view/backend/menuBackEnd.php');
 }
 
-function addMemberController($pseudo,$password,$passwordCheck,$email){
-    // Hachage du mot de passe
+function addMemberController($pseudo,$password,$passwordcheck,$email){
+   
+    $addaction=false;
 
+    $backendManager=new BackendManager;
 
-    
-
-        addMember($pseudo,$password,$email);
-        $isAdded=addMember($pseudo,$password,$email);
+    if ($password==$passwordcheck) {
+        
+        
+        $isAdded=$backendManager->addMember($pseudo,$password,$email);
+       
 
         if ($isAdded) {
-            
-            header('Location:index.php?action=opensessionpostlog&pseudo='.$pseudo);
+
+            $addAction=true;
+
+            openSession($pseudo,$password);
             
         } 
         
         else {
-            header('Location:view/backend/loginFail.php');}
+
+            $error="Impossible d'enregistrer l'utilisateur";
+
+            require('view/backend/createAccount.php');
         }
-                
-   
+    }
+
+    else {
+
+        $error='Mots de passe différents';
+
+        require('view/backend/createAccount.php');
+    }        
+}
 
 function login(){
 
@@ -33,34 +54,56 @@ function login(){
 
 }
 
-function openSession($pseudo) {
+function openSession($pseudo,$password) {
 
-    $registeredMember=isMember($pseudo);
-    
+    $backendManager=new BackendManager;
 
-    if (isset($registerdMember)) {
+    $registeredMember=$backendManager->isMember($pseudo);
+
+    $checkPass=$backendManager->checkPassword($pseudo,$password);
+   
+    if ($registeredMember!=0 && $checkPass) {
 
         $_SESSION['pseudo']= $pseudo;
         
-          
         header('Location:index.php');}
 
-        else {
+    else  {
+    
+        $error="Utilisateur ou mot de passe incorrect";
 
-        require('view/backend/loginfail.php');
+        if (isset($addAction)) {
 
+            if ($addAction) {
+
+                require('view/backend/createAccount.php');
+            }   
         }
+        
+        else 
+        
+            {require('view/backend/login.php');}
+
     }
+
+}
 
 
 function logout(){
 
     session_destroy();
-    header('location:index.php');
+
+    header('Location:index.php');
 }
 
+
 function createAccount(){
+
     require('view/backend/createAccount.php');
 }
 
 
+function bio() {
+
+    require('view/frontend/bio.php');
+}

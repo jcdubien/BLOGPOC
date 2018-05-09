@@ -50,7 +50,7 @@
                        <ul class="nav navbar-nav">
                          <li class="active"><a href="index.php">Accueil</a></li>
                          
-                         <li><a href="index.php?action=bio">A propos de l'auteur</a></li>
+                         <li><a href="view/frontend/bio.php">A propos de l'auteur</a></li>
                          <li><a href="tel:0690212201">Contact</a></li>
                                                   <?php
                             if (isset($_SESSION['pseudo'])) {
@@ -75,8 +75,8 @@
          <div class="row">
             <div class="col-sm4">Conçu avec application et le soutien éclairé de <a href="https://openclassrooms.com/">OpenClassrooms</a></div>
 <br/>
-
-           <?php if (isset($_SESSION['pseudo']) && ($_SESSION['pseudo']==="admin") ) { ?>
+    <?=$_SESSION['pseudo'] ?>
+           <?php if (isset($_SESSION['pseudo']) && ($_SESSION['pseudo']='admin') ) { ?>
             <div class="col-sm4"><a href ="/BLOG/index.php?action=menubackend">Administration</a></div><?php
             }?>
          </div>

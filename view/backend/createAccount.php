@@ -9,6 +9,15 @@
 
     <legend>Vous identifier</legend>
 
+    <?php
+    
+        if (isset($error)) {
+       
+             ?><p style="color:red"><?= $error ?></p> <?php
+
+        }
+    ?>
+
     <fieldset>
 
     <div class="row">

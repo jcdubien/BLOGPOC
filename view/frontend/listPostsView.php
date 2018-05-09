@@ -17,7 +17,9 @@
                 <p>
                     <?= nl2br(htmlspecialchars($data['content'])) ?>
                     <br />
+                    <?php if ((isset($_SESSION['pseudo']) )) { ?>
                     <em><a class=mark href="/BLOG/index.php?action=post&amp;id=<?= $data['id'] ?>">Commentaires</a></em>
+                    <?php } ?>
                 </p>
             </div>
         <?php

@@ -4,6 +4,7 @@ session_start();
 
 
 
+
 require('model/manager.php');
 require('model/backendManager.php');
 require('model/commentManager.php');
@@ -11,7 +12,6 @@ require('model/postManager.php');
 require('controller/article_controller.php');
 require('controller/comment_controller.php');
 require('controller/backend_controller.php');
-
 
 
 if (isset($_GET['action'])){
@@ -120,7 +120,10 @@ switch($menu) {
         sendPost($_POST['title'],$_POST['post']);
     break;
 
+   
+
     case "deletepost":
+        
         deletePost($_GET['id']);
     break;
 
@@ -137,7 +140,7 @@ switch($menu) {
     break;
 
     case "opensession":
-        openSession($_POST['pseudo']);
+        openSession($_POST['pseudo'],$_POST['password']);
     break;
 
     case "opensessionpostlog":
@@ -159,6 +162,13 @@ switch($menu) {
     case 'addmember':
         addMemberController($_POST['pseudo'],$_POST['password'],$_POST['passwordcheck'],$_POST['mail']);
     break;
+
+    case 'bio':
+        bio();
+    break;
+
+    
+    
     
     default:
         listPosts();

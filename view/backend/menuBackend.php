@@ -3,37 +3,44 @@
 <?php $title = 'Choix backend'; ?>
 
 
-<?php ob_start(); ?>
+<?php ob_start(); 
 
-<link rel="stylesheet" href="/BLOG/public/css/style.css">
 
- <form action="\BLOG\index.php" method="post">
+if (($_SESSION['pseudo']=="admin")) {?>
 
-    <div class="row menu">
+        <link rel="stylesheet" href="/BLOG/public/css/style.css">
+
+        <form action="\BLOG\index.php" method="post">
+
+        <div class="row menu">
                 
-                <div class="col-lg-6 col-sm-6 col-xs-6" >  
-                  
-                     <h2>Que souhaitez vous faire ?<br /></h2>
-                     <br />
-       <a href='index.php?action=makenewpost'>Poster un nouveau billet</a><br/>
-       <a href='index.php?action=listpostbackend'>Lister les billets pour suppression ou modification</a><br />
-      
+        <div class="col-lg-6 col-sm-6 col-xs-6" >  
+                
+                <h2>Que souhaitez vous faire ?<br /></h2>
+                <br />
+
+                <a href='index.php?action=makenewpost'>Poster un nouveau billet</a><br/>
+                <a href='index.php?action=listpostbackend'>Lister les billets pour suppression ou modification</a><br />
+        
+        </div>
+
+        <div class="col-lg-6 col-sm-6 col-xs-6" > 
+
+        <h2>Derniers commentaires signalés</h2>
+
+        
+
+        <?php
 
 
 
-                </div>
 
-                <div class="col-lg-6 col-sm-6 col-xs-6" > 
+        $comment=checkReportedComment();
 
-                <h2>Derniers commentaires signalés</h2>
+        foreach ($comment as $data) { ?>
 
-                <?php
+                <div class="news">
 
-                $comment=checkReportedComment();
-
-                foreach ($comment as $data) {
-                        ?>
-                        <div class="news">
                         <p>
                                 <?= htmlspecialchars($data['author']) ?>
                                 <em>le <?= $data['comment_date_fr'] ?></em>
@@ -46,19 +53,22 @@
                                 <em><a class=mark href="/BLOG/index.php?action=confirmcomment&amp;id=<?= $data['id'] ;?>&amp;postID=<?= $data['post_id']; ?>">Valider</a></em>
                         </p>
 
-                        </div>   
-                        <?php
-                }?>
+                </div> 
 
-                
-        
+        <?php }?>
 
- </form>
+        
+        </form>
+        
+        </div>
 
-<?php
-        
-        
-?>
+<?php } else {?>
+
+        <h1>Quelque chose s'est mal passé ...</h1>
+
+<?php } ?>
+
+ 
 
 <?php $content=ob_get_clean(); ?>
 

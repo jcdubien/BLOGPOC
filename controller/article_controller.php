@@ -1,31 +1,47 @@
 <?php 
 
 
-
+require_once('model/postManager.php');
+require_once('model/commentManager.php');
 
 
 function listPosts(){
+    
+    $postManager=new PostManager;
 
-    $articles = getPosts();
+    $articles=$postManager->getPosts();
+
     require('view/frontend/listPostsView.php');
 }
 
 function listPostsBackEnd(){
-    $articles=getPosts();
+
+    $postManager=new PostManager;
+
+    $articles=$postManager->getPosts();
+
     require('view/backend/listPost.php');
 
 }
 
 function post(){
 
-    $post = getPost($_GET['id']);
-    $comments = getComments($_GET['id']);
+    $postManager=new PostManager;
+    $commentManager=new CommentManager;
+
+    $post = $postManager-> getPost($_GET['id']);
+
+    $comments = $commentManager->getComments($_GET['id']);
+
     require('view/frontend/postView.php');
 }
 
 function sendPost($title,$content) {
 
-    postPost($title,$content);
+    $postManager=new PostManager;
+
+    $postManager->postPost($title,$content);
+
     require('view/backend/menuBackend.php');
 }
 
@@ -36,24 +52,42 @@ function makeNewPost(){
 
 function postBackEnd(){
 
-    $post = getPost($_GET['id']);
-    $comments = getComments($_GET['id']);
+    $postManager=new PostManager;
+    $commentManager=new CommentManager;
+
+    $post = $postManager->getPost($_GET['id']);
+    $comments = $commentManager->getComments($_GET['id']);
+
     require('view/backend/postViewBackEnd.php');
 }
 
 function deletePost($id) {
-    erasePost($id);
+    
+    $postManager=new PostManager;
+
+    $postManager->erasePost($id);
+
     header('Location:index.php?action=listpostbackend');
+    
 }
 
 function modifyPost($id){
-    $post=getPost($_GET['id']);
+
+    $postManager=new PostManager;
+
+    $post=$postManager->getPost($_GET['id']);
+
     require('view/backend/modifyPost.php');
 
 }
 
 function changePost($id,$title,$content){
-    editPost($id,$title,$content);
+
+    $postManager=new PostManager;
+
+    $postManager->editPost($id,$title,$content);
+
     header('Location:index.php?action=listpostbackend');
 
 }
+

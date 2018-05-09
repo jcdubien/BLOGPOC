@@ -36,14 +36,15 @@
                 
                     <div class="col-lg-12">  
                         <label for="author">Auteur</label><br />
-                        <input type="text" id="author" name="author" />
+                        <?php if (isset($_SESSION['pseudo'])) {$pseudo=$_SESSION['pseudo'];} else {$pseudo=' ';}?> 
+                        <input type="text" id="author" name="author" value=<?=$pseudo?> >
                     </div>
             </div>
 
             <div class="row">
                     <div class="col-lg-12">
                         <label for="comment">Commentaire</label><br />
-                        <textarea id="comment" name="comment"></textarea>
+                        <textarea id="comment" name="comment" placeholder="Votre commentaire" ></textarea>
                     </div>
             <div>
 
