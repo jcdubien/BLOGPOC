@@ -72,7 +72,7 @@
 
                         <li><a href="index.php?action=bio">A propos de l'auteur</a></li>
 
-                        <li><a href="tel:0690212201">Contact</a></li>
+                        <li><a href="mailto:jcdubien@gmail.com">Contact</a></li>
 
                         <?php if (isset($_SESSION['pseudo'])) {
 
@@ -99,6 +99,7 @@
 
 
         
+        
 
         <?= $content ?>
 
@@ -112,23 +113,12 @@
             <div class="row">
 
                 <div class="col-lg-12 col-sm-12 col-xs-12 col-md-12">Conçu avec application et le soutien éclairé de <a href="https://openclassrooms.com/">OpenClassrooms</a></div>
-                
+                <div>
+                    <a href="javascript:history.back()">Page Précédente</a>
+                </div>
                 <br/>
 
-                
-                <?php 
-                
-                $backendManager=new BackendManager;
-
-                if (isset($_SESSION['pseudo']) && ($backendManager->isAdmin($_SESSION['pseudo'])===1) ) { ?>
-
-                
-                    <div class="col-lg-12 col-sm-12 col-xs-12 col-md-12"><a href ="/BLOG/index.php?action=menubackend">Administration</a></div><?php
-
-                }?>
-
-            </div>
-
+              
         </footer>
 
 

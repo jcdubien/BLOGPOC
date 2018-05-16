@@ -43,7 +43,12 @@
 
     </div>
 
+    
+
+   <div class="tinymce"> 
+       <br/>
     <button class="btn btn-primary" type="submit">Envoyer</button>
+    </div>
 
     </fieldset>
 

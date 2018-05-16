@@ -13,7 +13,7 @@
     </h3>
     
     <p>
-        <?= nl2br(htmlspecialchars($post['content'])) ?>
+        <?= nl2br($post['content']) ?>
     </p>
 
     
@@ -25,7 +25,7 @@
     {
     ?>
         <p><?= htmlspecialchars($comment['author']) ?> le <?= $comment['comment_date_fr'] ?></p>
-        <p><?= nl2br(htmlspecialchars($comment['comment'])) ?><a class=mark href="index.php?action=deletecomment&amp;id=<?= $post['id']?>">Supprimer</a></p>
+        <p><?= nl2br($comment['comment']) ?><a class=mark href="index.php?action=deletecomment&amp;id=<?= $post['id']?>">Supprimer</a></p>
     <?php
     }
     ?>

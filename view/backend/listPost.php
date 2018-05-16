@@ -15,8 +15,8 @@
             </h3>
             
             <p>
-                <?= nl2br(htmlspecialchars($data['content'])) ?>
-                <a class=mark href="index.php?action=deletepost&amp;id=<?= $data['id']?>"> Supprimer </a>
+                <?= nl2br($data['content']) ?>
+                <a class=mark href="index.php?action=deletepost&amp;id=<?= $data['id']?>" onClick="return confirm('Etes vous sûr ?')">Supprimer </a>
                 <a class=mark href="index.php?action=modifypost&amp;id=<?= $data['id']?>"> Modifier </a>
                 <a class=mark href="/BLOG/index.php?action=postbackend&amp;id=<?= $data['id'] ?>">Commentaires</a>
                     

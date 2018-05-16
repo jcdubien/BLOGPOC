@@ -60,7 +60,7 @@
                         <li class="active"><a href="index.php">Accueil</a></li>
                         
                         <li><a href="index.php?action=bio">A propos de l'auteur</a></li>
-                        <li><a href="tel:0690212201">Contact</a></li>
+                        <li><a href="mailto:jcdubien@gmail.com">Contact</a></li>
                         <?php if (isset($_SESSION['pseudo'])) {
 
                             ?><li><a class=disconnect href="index.php?action=logout"><?=$_SESSION['pseudo']?>
@@ -90,9 +90,21 @@
 
                 <div class="col-lg-12 col-sm-12 col-xs-12 col-md-12">Conçu avec application et le soutien éclairé de <a href="https://openclassrooms.com/">OpenClassrooms</a></div>
                 <br/>
-                <?php if (isset($_SESSION['pseudo']) && ($_SESSION['pseudo']==="admin") ) { ?>
+
+                <?php 
+
+                $backendManager=new BackendManager;
+             
+                if ((isset($_SESSION['pseudo'])) && ($backendManager->isAdmin($_SESSION['pseudo'])==1)) { ?>
+
                     <div class="col-lg-12 col-sm-12 col-xs-12 col-md-12"><a href ="/BLOG/index.php?action=menubackend">Administration</a></div><?php
+                
+                } elseif (isset($_SESSION['pseudo'])){ 
+                    
+                    echo ('Bienvenue  : '.$_SESSION['pseudo'] . '-----' . $backendManager->isAdmin($_SESSION['pseudo']));
+                
                 }?>
+
             </div>
 
         </footer>

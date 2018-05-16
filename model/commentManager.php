@@ -14,6 +14,8 @@ class CommentManager extends Manager {
         return $comments;
     }
 
+    
+
     function getAllComments() {
 
         $db = $this ->dbConnect();

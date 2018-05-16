@@ -92,8 +92,9 @@ text-decoration: deeppink;
     text-align:center;
   }
 
-  .bouton {
-    margin-top:30 px;
+  .btn {
+    background-color: red;
+    margin:auto;
   }
 
   .bioimage {
@@ -102,3 +103,12 @@ text-decoration: deeppink;
     border: 1px,solid,black;
     margin-right: 5px;
   }
+
+ .separator {
+
+  display:block;
+  height: 30px;
+  background-color: red;
+
+ }
+  

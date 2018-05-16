@@ -5,8 +5,9 @@
 
 <?php ob_start(); 
 
-
-if (($_SESSION['pseudo']=="admin")) {?>
+        $backendManager=new BackendManager;
+             
+        if ((isset($_SESSION['pseudo'])) && ($backendManager->isAdmin($_SESSION['pseudo'])==1))  {?>
 
         <link rel="stylesheet" href="/BLOG/public/css/style.css">
 
@@ -49,7 +50,7 @@ if (($_SESSION['pseudo']=="admin")) {?>
                         <p>
                                 <?= nl2br($data['comment']) ?>
                                 
-                                <em><a class=mark href="/BLOG/index.php?action=deletecomment&amp;id=<?= $data['id'] ;?>&amp;postID=<?= $data['post_id']; ?>">Supprimer</a></em>
+                                <em><a class=mark href="/BLOG/index.php?action=deletecomment&amp;id=<?= $data['id'] ;?>&amp;postID=<?= $data['post_id']; ?>" onClick="return confirm('Etes vous sûr ?')">Supprimer</a></em>
                                 <em><a class=mark href="/BLOG/index.php?action=confirmcomment&amp;id=<?= $data['id'] ;?>&amp;postID=<?= $data['post_id']; ?>">Valider</a></em>
                         </p>
 

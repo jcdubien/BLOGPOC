@@ -121,10 +121,10 @@ switch($menu) {
     break;
 
    
-
     case "deletepost":
         
         deletePost($_GET['id']);
+       
     break;
 
     case "modifypost":

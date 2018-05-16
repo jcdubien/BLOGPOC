@@ -44,19 +44,26 @@
                     </div>
             </div>
 
-            <div class="row">
+            <div class="row tinymce">
 
                     <div class="col-lg-12 col-sm-12 col-xs-12 col-md-12">
 
                         <label for="comment">Commentaire</label><br />
-                        <textarea class="form-control" id="comment" name="comment" placeholder="Votre commentaire" ></textarea>
+                        <textarea class="form-control tinymce" id="comment" name="comment" placeholder="Votre commentaire" ></textarea>
 
                     </div>
             <div>
 
         </div>
+     
+    
+        
+    <div class="row">    
+    
+         <button class="btn btn-primary" type="submit">Envoyer</button>
 
-        <button class="btn btn-primary bouton" type="submit">Envoyer</button>
+    <div>
+            
 
     </fieldset>
 

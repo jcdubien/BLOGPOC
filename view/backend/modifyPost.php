@@ -42,7 +42,13 @@
 
     </div>
 
+
+    
+
+    <div class="tinymce">    
+   
     <button class="btn btn-primary" type="submit">Envoyer</button>
+    <div>
 
     </fieldset>
 
@@ -50,10 +56,7 @@
 
 </section>
        
-<?php
-        
-        
-?>
+
 
 <?php $content=ob_get_clean(); ?>
 
