@@ -113,9 +113,7 @@
             <div class="row">
 
                 <div class="col-lg-12 col-sm-12 col-xs-12 col-md-12">Conçu avec application et le soutien éclairé de <a href="https://openclassrooms.com/">OpenClassrooms</a></div>
-                <div>
-                    <a href="javascript:history.back()">Page Précédente</a>
-                </div>
+                
                 <br/>
 
               

@@ -24,14 +24,20 @@
     while ($comment = $comments->fetch())
     {
     ?>
-        <p><?= htmlspecialchars($comment['author']) ?> le <?= $comment['comment_date_fr'] ?></p>
-        <p><?= nl2br($comment['comment']) ?><a class=mark href="index.php?action=deletecomment&amp;id=<?= $post['id']?>">Supprimer</a></p>
+        <h4><?= htmlspecialchars($comment['author']) ?> le <?= $comment['comment_date_fr'] ?></h4>
+        <p><?= nl2br($comment['comment']) ?><a class="btn btn-warning btn-sm" href="index.php?action=deletecomment&amp;id=<?= $post['id']?>">Supprimer</a></p>
     <?php
     }
     ?>
 </div>
      
 
+<div>    
+
+    
+    <a href="index.php?action=listpostbackend" class="btn btn-danger">Retour</a>
+
+<div>
 
 <?php $content=ob_get_clean(); ?>
 

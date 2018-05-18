@@ -7,7 +7,7 @@
 
     <form class="formulaire" action="\BLOG\index.php?action=changepost&id=<?=$id?>" method="post">
 
-    <legend>Postez votre message</legend>
+    <legend>Modifiez un message</legend>
 
     <fieldset>
 
@@ -45,9 +45,11 @@
 
     
 
-    <div class="tinymce">    
+    <div>    
    
     <button class="btn btn-primary" type="submit">Envoyer</button>
+    <a href="index.php?action=listpostbackend" class="btn btn-danger">Retour</a>
+
     <div>
 
     </fieldset>

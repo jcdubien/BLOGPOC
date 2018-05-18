@@ -16,14 +16,14 @@
     </p>
 
 
-    <h3>Commentaires</h3>
+    <h3 class="underline">Commentaires</h3>
 
     <?php
 
     while ($comment = $comments->fetch()) { ?>
 
-        <p><?= htmlspecialchars($comment['author']) ?> le <?= $comment['comment_date_fr'] ?></p>
-        <p><?= nl2br($comment['comment']) ?><a class=mark href="index.php?action=report&amp;postID=<?= $comment['post_id'];?>&amp;id=<?= $comment['id']?>">Signaler</a></p>
+        <h4><?= htmlspecialchars($comment['author']) ?> le <?= $comment['comment_date_fr'] ?></h4>
+        <p><?= nl2br($comment['comment']) ?><a class="btn btn-danger" href="index.php?action=report&amp;postID=<?= $comment['post_id'];?>&amp;id=<?= $comment['id']?>">Signaler</a></p>
    
    <?php }?>
 
@@ -50,7 +50,7 @@
 
                         <label for="comment">Commentaire</label><br />
                         <textarea class="form-control tinymce" id="comment" name="comment" placeholder="Votre commentaire" ></textarea>
-
+                        <br/>
                     </div>
             <div>
 
@@ -58,9 +58,11 @@
      
     
         
-    <div class="row">    
+    <div class="row" style="marginTop:30px">    
     
          <button class="btn btn-primary" type="submit">Envoyer</button>
+         <a href="index.php" class="btn btn-danger">Retour</a>
+
 
     <div>
             

@@ -97,7 +97,7 @@
              
                 if ((isset($_SESSION['pseudo'])) && ($backendManager->isAdmin($_SESSION['pseudo'])==1)) { ?>
 
-                    <div class="col-lg-12 col-sm-12 col-xs-12 col-md-12"><a href ="/BLOG/index.php?action=menubackend">Administration</a></div><?php
+                    <div class="col-lg-12 col-sm-12 col-xs-12 col-md-12"><a class="btn btn-info" href ="/BLOG/index.php?action=menubackend">Administration</a></div><?php
                 
                 } elseif (isset($_SESSION['pseudo'])){ 
                     

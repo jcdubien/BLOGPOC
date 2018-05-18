@@ -48,6 +48,7 @@
    <div class="tinymce"> 
        <br/>
     <button class="btn btn-primary" type="submit">Envoyer</button>
+    <a href="index.php?action=menubackend" class="btn btn-danger">Retour</a>
     </div>
 
     </fieldset>
