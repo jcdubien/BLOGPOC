@@ -25,8 +25,19 @@
     {
     ?>
         <h4><?= htmlspecialchars($comment['author']) ?> le <?= $comment['comment_date_fr'] ?></h4>
-        <p><?= nl2br($comment['comment']) ?><a class="btn btn-warning btn-sm" href="index.php?action=deletecomment&amp;id=<?= $post['id']?>">Supprimer</a></p>
-    <?php
+
+        <?php $report=new CommentManager;
+
+        $report->isreported($id);
+
+        if ($report===1) 
+        
+        { ?>
+
+            <p><?= nl2br($comment['comment']) ?><a class="btn btn-warning btn-sm" href="index.php?action=deletecomment&amp;id=<?= $post['id']?>">Supprimer</a></p><?php
+
+        }
+    
     }
     ?>
 </div>

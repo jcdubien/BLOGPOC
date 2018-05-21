@@ -1,4 +1,4 @@
-.footer {
+footer {
     border-top: 1px solid #ccc;
     padding-top: 10px;
     text-align: center;
@@ -10,8 +10,7 @@ header {
     justify-content: space-around;
     align-items: center;
     margin : auto;
-    background-image: url('/BLOG/public/css/alaska.jpg');
-}
+  }
 
 
 h2 {
@@ -20,9 +19,17 @@ h2 {
 
 .formulaire {
     margin-top: 100 px;
-    
     padding-top: 10px;
     
+}
+
+.news 
+{
+  border:solid black 1px;
+  border-radius: 10px;
+  padding:10px;
+  margin-top:10px;
+  text-align:left;
 }
 
 body {
@@ -54,7 +61,6 @@ body {
     padding-left: 15px;
     margin-right: auto;
     margin-left: auto;
-    
     text-align: left;
 
   }
@@ -67,10 +73,7 @@ body {
 
   
 
-  .mark {
-      margin-left: 10 px;
-      text-decoration-color: firebrick;
-  }
+ 
 
   .fieldset {
 
@@ -104,15 +107,58 @@ text-decoration: deeppink;
     margin-right: 5px;
   }
 
- .separator {
+
+  
+ .btn {
+
+  margin:10px;
+  text-align: center;
+ }
+
+ .form-control {
+
+  margin:auto;
+  text-align: center;
+  width:70%;
+ }
+
+ .title {
+   display:inline;
+ }
+
+.top-img {
+
+  display:flex;
+  justify-content:space-around;
+  margin-top:20px;
+  height:100px;
+  
+}
+
+.commentlist {
 
   display:block;
-  height: 30px;
-  background-color: red;
+  margin:auto;
+  text-align: center;
+  border:solid black 1px;
+  border-radius: 10px;
+  padding:10px;
+  margin-top:10px;
 
- }
+}
 
- .underline {
-   border-bottom: solid , black , 1px;
- }
+.commenttitle {
   
+  text-decoration: bold italic;
+  margin:auto;
+ 
+}
+
+.postcommenttitle {
+
+  border:solid black 1px;
+  border-radius: 25% 10%;
+  padding:10px;
+  margin-top:10px;
+  background-color: lightgrey;
+}

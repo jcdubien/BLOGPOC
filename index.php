@@ -6,12 +6,12 @@ session_start();
 
 
 require('model/manager.php');
-require('model/backendManager.php');
-require('model/commentManager.php');
-require('model/postManager.php');
-require('controller/article_controller.php');
-require('controller/comment_controller.php');
-require('controller/backend_controller.php');
+require('model/BackendManager.php');
+require('model/CommentManager.php');
+require('model/PostManager.php');
+require('controller/ArticleController.php');
+require('controller/CommentController.php');
+require('controller/BackendController.php');
 
 
 if (isset($_GET['action'])){

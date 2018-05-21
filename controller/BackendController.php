@@ -1,7 +1,7 @@
 <?php 
 
-require_once('model/backendManager.php');
-require_once('model/commentManager.php');
+require_once('model/BackendManager.php');
+require_once('model/CommentManager.php');
 
 function showMenu() {
 

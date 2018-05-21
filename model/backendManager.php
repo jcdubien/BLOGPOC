@@ -4,7 +4,7 @@ require_once("manager.php");
 
 class BackendManager extends Manager {
 
-    function addMember($pseudo,$pass,$email){
+    public function addMember($pseudo,$pass,$email){
 
         $passHash=password_hash($pass,PASSWORD_DEFAULT);
 
@@ -23,7 +23,7 @@ class BackendManager extends Manager {
     }
 
 
-    function checkPassword($pseudo ,$password){
+    public function checkPassword($pseudo ,$password){
 
         $db=$this->dbConnect();
 
@@ -46,7 +46,7 @@ class BackendManager extends Manager {
         return $passcheck;
     }
 
-    function getPassword($pseudo) {
+    public function getPassword($pseudo) {
 
         $db=$this->dbConnect();
 
@@ -60,7 +60,7 @@ class BackendManager extends Manager {
 
     }
 
-    function isMember($pseudo) {
+    public function isMember($pseudo) {
         
         $db=$this->dbConnect();
 
@@ -74,7 +74,7 @@ class BackendManager extends Manager {
 
     } 
 
-    function isAdmin($pseudo){
+    public function isAdmin($pseudo){
 
         $db=$this->dbConnect();
 
@@ -88,7 +88,7 @@ class BackendManager extends Manager {
     }
 
 
-    function listMember($pseudo){
+    public function listMember($pseudo){
 
         $db=$this->dbConnect();
 

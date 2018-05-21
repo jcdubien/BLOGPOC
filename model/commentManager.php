@@ -4,7 +4,7 @@ require_once("manager.php");
 
 class CommentManager extends Manager {
 
-    function getComments($postId){
+    public function getComments($postId){
 
         $db = $this->dbConnect();
 
@@ -16,7 +16,7 @@ class CommentManager extends Manager {
 
     
 
-    function getAllComments() {
+    public function getAllComments() {
 
         $db = $this ->dbConnect();
 
@@ -26,7 +26,7 @@ class CommentManager extends Manager {
     }
 
 
-    function postComment($postId,$author,$comment) {
+    public function postComment($postId,$author,$comment) {
 
         $db=$this->dbConnect();
 
@@ -37,7 +37,7 @@ class CommentManager extends Manager {
         return $affectedLines;
     }
 
-    function listReportedComment(){
+    public function listReportedComment(){
 
         $db=$this->dbConnect();
 
@@ -47,7 +47,7 @@ class CommentManager extends Manager {
 
     }
 
-    function reportBadComment($id) {
+    public function reportBadComment($id) {
 
         $db=$this->dbConnect();
 
@@ -58,7 +58,19 @@ class CommentManager extends Manager {
         return $affectedLine; 
     }
 
-    function validateComment($id) {
+    public function isreported($id) {
+        
+        $db=$this->dbConnect();
+
+        $report=$db->prepare('SELECT reported FROM t_comment WHERE id=?');
+
+        $affectedLine=$report->execute(array($id));
+
+        return $affectedLine;
+
+    }
+
+    public function validateComment($id) {
 
         $db=$this->dbConnect();
 
@@ -69,7 +81,7 @@ class CommentManager extends Manager {
         return $affectedLine; 
     }
 
-    function deleteComment($id){
+    public function deleteComment($id){
 
         $db=$this->dbConnect();
 

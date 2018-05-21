@@ -20,8 +20,9 @@
                 <h2>Que souhaitez vous faire ?<br /></h2>
                 <br />
 
-                <a href='index.php?action=makenewpost'>Poster un nouveau billet</a><br/>
-                <a href='index.php?action=listpostbackend'>Lister les billets pour suppression ou modification</a><br />
+                <a class="btn btn-info" href='index.php?action=makenewpost'>Poster un nouveau billet</a><br/>
+                <a class="btn btn-info" href='index.php?action=listpostbackend'>Lister les billets pour suppression ou modification</a><br />
+
         
         </div>
 
@@ -40,7 +41,7 @@
 
         foreach ($comment as $data) { ?>
 
-                <div class="news">
+                <div >
 
                         <p>
                                 <?= htmlspecialchars($data['author']) ?>
@@ -50,8 +51,8 @@
                         <p>
                                 <?= nl2br($data['comment']) ?>
                                 
-                                <em><a class=mark href="/BLOG/index.php?action=deletecomment&amp;id=<?= $data['id'] ;?>&amp;postID=<?= $data['post_id']; ?>" onClick="return confirm('Etes vous sûr ?')">Supprimer</a></em>
-                                <em><a class=mark href="/BLOG/index.php?action=confirmcomment&amp;id=<?= $data['id'] ;?>&amp;postID=<?= $data['post_id']; ?>">Valider</a></em>
+                                <em><a class="btn btn-info btn-sm" href="/BLOG/index.php?action=deletecomment&amp;id=<?= $data['id'] ;?>&amp;postID=<?= $data['post_id']; ?>" onClick="return confirm('Etes vous sûr ?')">Supprimer</a></em>
+                                <em><a class="btn btn-info btn-sm" href="/BLOG/index.php?action=confirmcomment&amp;id=<?= $data['id'] ;?>&amp;postID=<?= $data['post_id']; ?>">Valider</a></em>
                         </p>
 
                 </div> 

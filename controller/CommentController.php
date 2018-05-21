@@ -2,7 +2,7 @@
 
 
 
-require_once('model/commentManager.php');
+require_once('model/CommentManager.php');
 
 
 function addComment($postId, $author, $comment){

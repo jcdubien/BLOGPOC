@@ -15,21 +15,32 @@
         <?= nl2br($post['content']) ?>
     </p>
 
-
-    <h3 class="underline">Commentaires</h3>
-
-    <?php
-
-    while ($comment = $comments->fetch()) { ?>
-
-        <h4><?= htmlspecialchars($comment['author']) ?> le <?= $comment['comment_date_fr'] ?></h4>
-        <p><?= nl2br($comment['comment']) ?><a class="btn btn-danger" href="index.php?action=report&amp;postID=<?= $comment['post_id'];?>&amp;id=<?= $comment['id']?>">Signaler</a></p>
-   
-   <?php }?>
-
 </div>
 
-<form class="formulaire" action="index.php?action=addComment&amp;id=<?= $post['id'] ?>" method="post">
+
+
+   
+
+    <div class="commentlist">
+
+        <?php
+
+        while ($comment = $comments->fetch()) { ?>
+
+            <div class="postcommenttitle">
+                <h3><?= htmlspecialchars($comment['author']) ?></h3> 
+                le <?= $comment['comment_date_fr'] ?></h3>
+            
+
+            <p><?= nl2br($comment['comment']) ?><a class="btn btn-danger" href="index.php?action=report&amp;postID=<?= $comment['post_id'];?>&amp;id=<?= $comment['id']?>">Signaler</a></p>
+            </div>
+        <?php }?>
+
+    </div>
+
+
+
+<form  action="index.php?action=addComment&amp;id=<?= $post['id'] ?>" method="post">
 
     <fieldset>
 
@@ -55,21 +66,22 @@
             <div>
 
         </div>
-     
+    
     
         
-    <div class="row" style="marginTop:30px">    
-    
-         <button class="btn btn-primary" type="submit">Envoyer</button>
-         <a href="index.php" class="btn btn-danger">Retour</a>
+        <div class="row" style="marginTop:30px">    
+        
+            <button class="btn btn-primary" type="submit">Envoyer</button>
+            <a href="index.php" class="btn btn-danger">Retour</a>
 
 
-    <div>
+        <div>
             
 
     </fieldset>
 
 </form>
+
 
 
 <?php $content=ob_get_clean(); ?>

@@ -4,15 +4,21 @@
 
 <?php ob_start(); ?>
 
+<div class="top-img">
+
+    <img  src="public/alaska.jpg">
+
+</div>
+
 <?php
         while ($data = $articles->fetch())
         {
         ?>
             <div class="news">
-                <h3>
-                    <?= htmlspecialchars($data['title']) ?>
-                    <em>le <?= $data['creation_date_fr'] ?></em>
-                </h3>
+                <div >
+                    <h3 class="title" ><?= htmlspecialchars($data['title']) ?></h3>
+                    <em class="title">le <?= $data['creation_date_fr'] ?></em>
+                </div>
                 
                 <p>
                     <?= nl2br($data['content']) ?>
