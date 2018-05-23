@@ -35,9 +35,9 @@
         <?php
 
 
+        $controller=new CommentController;
 
-
-        $comment=checkReportedComment();
+        $comment=$controller->checkReportedComment();
 
         foreach ($comment as $data) { ?>
 

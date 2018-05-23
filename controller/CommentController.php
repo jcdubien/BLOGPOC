@@ -4,78 +4,91 @@
 
 require_once('model/CommentManager.php');
 
-
-function addComment($postId, $author, $comment){
-
-    $commentManager=new CommentManager;
+class CommentController {
 
 
-    $affectedLines = $commentManager->postComment($postId, $author, $comment);
+    function addComment($postId, $author, $comment){
 
-    if ($affectedLines === false) {
+        $commentManager=new CommentManager;
 
-        die('Impossible d\'ajouter le commentaire !');
+
+        $affectedLines = $commentManager->postComment($postId, $author, $comment);
+
+        if ($affectedLines === false) {
+
+            die('Impossible d\'ajouter le commentaire !');
+        }
+
+        else {
+
+            header('Location: index.php?action=post&id=' . $postId);
+        }
     }
 
-    else {
+    function checkReportedComment(){
 
-        header('Location: index.php?action=post&id=' . $postId);
+        $commentManager=new CommentManager;
+
+        $comment=$commentManager->listReportedComment();
+
+        return $comment;
+
+        require('/view/backend/checkReported.php');
     }
-}
 
-function checkReportedComment(){
+    function eraseComment($id,$postId){
 
-    $commentManager=new CommentManager;
+        $commentManager=new CommentManager;
 
-    $comment=$commentManager->listReportedComment();
+        $affectedLine=$commentManager->deleteComment($id);
 
-    return $comment;
+        if ($affectedLine==false) {
 
-    require('/view/backend/checkReported.php');
-}
-
-function eraseComment($id,$postId){
-
-    $commentManager=new CommentManager;
-
-    $affectedLine=$commentManager->deleteComment($id);
-
-    if ($affectedLine==false) {
-
-        echo('Erreur : aucun commentaire n\'a été supprimé');
-    }
-    
-    else {
-
-        header('Location:index.php?action=menubackend&id='. $postId);
-    }
-}
-
-
-function confirmComment($id,$postID) {
-
-    $commentManager= new CommentManager;
-
-    $affectedLine=$commentManager->validateComment($id);
-
-    if ($affectedLine==false) {
-
-        echo('Erreur : aucun commentaire n\'a été validé');
-    }
-    
-    else {
+            echo('Erreur : aucun commentaire n\'a été supprimé');
+        }
         
-        header('Location:index.php?action=menubackend&id='. $postId);
+        else {
+
+            header('Location:index.php?action=menubackend&id='. $postId);
+        }
     }
-}
+
+
+    function confirmComment($id,$postID) {
+
+        $commentManager= new CommentManager;
+
+        $affectedLine=$commentManager->validateComment($id);
+
+        if ($affectedLine==false) {
+
+            echo('Erreur : aucun commentaire n\'a été validé');
+        }
+        
+        else {
+            
+            header('Location:index.php?action=menubackend&id='. $postId);
+        }
+    }
 
 
 
-function markBadComment($id,$postID) {
+    function markBadComment($id,$postID) {
 
-    $commentManager= new CommentManager;
+        $commentManager= new CommentManager;
 
-    $commentManager->reportBadComment($id);
+        $affectedLine=$commentManager->reportBadComment($id);
 
-    header('Location:index.php?action=post&id=' . $postID);
+        header('Location:index.php?action=post&id=' . $postID);
+    }
+
+    function eraseCommentByPostId($postId){
+
+        $commentManager=new CommentManager;
+        
+        $affectedLine=$commentManager->deleteCommentByPostId($postId);
+
+        header('Location:index.php');
+    }
+
 }

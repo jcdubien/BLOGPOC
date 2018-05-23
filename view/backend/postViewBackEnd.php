@@ -16,40 +16,42 @@
         <?= nl2br($post['content']) ?>
     </p>
 
-    
-    <h3>Commentaires</h3>
-    
-    <?php
-
-    while ($comment = $comments->fetch())
-    {
-    ?>
-        <h4><?= htmlspecialchars($comment['author']) ?> le <?= $comment['comment_date_fr'] ?></h4>
-
-        <?php $report=new CommentManager;
-
-        $report->isreported($id);
-
-        if ($report===1) 
-        
-        { ?>
-
-            <p><?= nl2br($comment['comment']) ?><a class="btn btn-warning btn-sm" href="index.php?action=deletecomment&amp;id=<?= $post['id']?>">Supprimer</a></p><?php
-
-        }
-    
-    }
-    ?>
 </div>
-     
 
-<div>    
+<h3>Commentaires</h3>
 
+<?php
+
+while ($comment = $comments->fetch())
+{
+?>
+
+<div class="commentlist">
+
+    <h4 ><?= htmlspecialchars($comment['author']) ?> le <?= $comment['comment_date_fr'] ?></h4>
+
+    <p class='title'>
     
-    <a href="index.php?action=listpostbackend" class="btn btn-danger">Retour</a>
+        <div  ><?= nl2br($comment['comment']) ?></div>
+        <a class="btn btn-danger btn-sm" href="index.php?action=deletecomment&amp;id=<?= $post['id']?>">Supprimer</a>
+    
+    </p><?php
 
-<div>
+}
 
+?>
+</div>
+    
+
+<div class="row" style="marginTop:30px,textAlign:center">    
+    
+    
+    <a href="index.php" class="btn btn-danger">Retour</a>
+
+
+</div>  
+
+ 
 <?php $content=ob_get_clean(); ?>
 
 <?php require('template.php') ?>

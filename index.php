@@ -26,17 +26,26 @@ switch($menu) {
 
     case "post":
         if (isset($_GET['id']) && $_GET['id'] > 0) {
-            post();
+
+            $Post=new ArticleController;
+                       
+            $Post->post();
         }
         else {
+
             throw new Exception('Aucun identifiant de billet envoyé');
         }
     break;
 
     case "addComment":
+
         if (isset($_GET['id']) && $_GET['id'] > 0) {
+
             if (!empty($_POST['author']) && !empty($_POST['comment'])) {
-                addComment($_GET['id'], $_POST['author'], $_POST['comment']);
+
+                $Comment=new CommentController;
+
+                $Comment->addComment($_GET['id'], $_POST['author'], $_POST['comment']);
             }
             else {
                 throw new Exception('Tous les champs ne sont pas remplis !');
@@ -48,7 +57,11 @@ switch($menu) {
     break;
 
     case "listPosts":
-        listPosts();
+
+        $Post=new ArticleController;
+
+        $Post->listPosts();
+
     break;
     
     case "post":
@@ -56,35 +69,61 @@ switch($menu) {
             echo $_GET['id'];
             
                 if ((isset($GET['id'])) && $GET['id'] >0) {
-                    post();
+
+                    $Post=new ArticleController;
+
+                    $Post->post();
                 }
                 else {
+
                     echo 'Erreur : aucun identifiant de billet envoyé';
+
                 }
     break;
 
     case "makenewpost":
-        makeNewPost();
+
+        $Post=new ArticleController;
+        
+        $Post->makeNewPost();
+
     break;
 
     case "listpostbackend":
-        listPostsBackEnd();
+
+        $Backend=new ArticleController;
+
+
+        $Backend->listPostsBackEnd();
+
     break;
 
     case "postpost":
-       sendPost($_POST['title'],$POST['']);
+                
+       $Post=new ArticleController;
+
+       $Post->sendPost($_POST['title'],$POST['']);
+
     break;
 
     case "menubackend":
-               
-        showMenu();
+
+        $Backend=new BackendController;
+                
+        $Backend->showMenu();
+
     break;
 
     case "addComment":
 
         if (isset($_GET['id']) && $_GET['id'] > 0) {
+
             if (!empty($_POST['author']) && !empty($_POST['comment'])) {
-                addComment($_GET['id'], $_POST['author'], $_POST['comment']);
+
+                $Comment=new CommentController;
+
+                $Comment->addComment($_GET['id'], $_POST['author'], $_POST['comment']);
+
             }
             else {
                 // Autre exception
@@ -95,81 +134,150 @@ switch($menu) {
     break;
 
     case "checkcomment":
-        checkReportedComment();
+
+        $Comment=new CommentController;
+        
+        $Comment->checkReportedComment();
+
     break;
     
     case "deletecomment":
-        eraseComment($_GET['id'],$_GET['postID']);
+
+        $Comment=new CommentController;
+
+        $Comment->eraseComment($_GET['id'],$_GET['postID']);
+
     break;
 
     case "confirmcomment":
-        confirmComment($_GET['id'],$_GET['postID']);
+
+        $Comment=new CommentController;
+
+        $Comment->confirmComment($_GET['id'],$_GET['postID']);
+
     break;
     
     case "report":
-        markBadComment($_GET['id'],$_GET['postID']);
+
+        $Comment=new CommentController;
+
+        $Comment->markBadComment($_GET['id'],$_GET['postID']);
         
     break;
 
     case "postbackend":
-        postBackEnd();
+
+        $Article=new ArticleController;
+
+        $Article->postBackEnd();
         
     break;
 
     case "postnew":
-        sendPost($_POST['title'],$_POST['post']);
+
+        $Post=new ArticleController;
+
+        $Post->sendPost($_POST['title'],$_POST['post']);
+
     break;
 
    
     case "deletepost":
+
+        $Post=new ArticleController;
+        $Comment=new CommentController;
         
-        deletePost($_GET['id']);
+        $Post->deletePost($_GET['id']);
+
+        $Comment->eraseCommentByPostId($_GET['id']);
        
     break;
 
     case "modifypost":
-        modifyPost($_GET['id']);
+
+        $Post=new ArticleController;
+
+        $Post->modifyPost($_GET['id']);
+
     break;
 
     case "changepost":
-        changePost($_GET['id'],$_POST['title'],$_POST['post']);
+
+        $Post=new ArticleController;
+
+        $Post->changePost($_GET['id'],$_POST['title'],$_POST['post']);
+
     break;
 
     case "login":
-        login();
+
+        $Backend=new BackendController;
+    
+        $Backend->login();
+
     break;
 
     case "opensession":
-        openSession($_POST['pseudo'],$_POST['password']);
+
+        $Backend=new BackendController;
+        
+        $Backend->openSession($_POST['pseudo'],$_POST['password']);
+    
     break;
 
     case "opensessionpostlog":
-        openSession($_GET['pseudo']);
+
+        $Backend=new BackendController;
+
+        $Backend->openSession($_GET['pseudo']);
+
     break;
 
     case "loginSuccess":
-        loginSuccess();
+        
+        $Backend=new BackendController;
+
+        $Backend->loginSuccess();
+
     break;
 
     case "logout":
-        logout();
+
+        $Backend=new BackendController;
+        
+        $Backend->logout();
+
     break;
 
     case 'createaccount':
-        createAccount();
+
+        $Backend=new BackendController;
+
+        $Backend->createAccount();
+
     break;
 
     case 'addmember':
-        addMemberController($_POST['pseudo'],$_POST['password'],$_POST['passwordcheck'],$_POST['mail']);
+
+        $Backend=new BackendController;
+
+        $Backend->addMemberController($_POST['pseudo'],$_POST['password'],$_POST['passwordcheck'],$_POST['mail']);
+
     break;
 
     case 'bio':
-        bio();
+
+        $Backend=new BackendController;
+
+        $Backend->bio();
+
     break;
 
-    
-    
+       
     
     default:
-        listPosts();
+
+        $Post=new ArticleController;
+
+        $Post->listPosts();
 }

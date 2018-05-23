@@ -4,90 +4,93 @@
 require_once('model/PostManager.php');
 require_once('model/CommentManager.php');
 
+class ArticleController {
 
-function listPosts(){
-    
-    $postManager=new PostManager;
+    public function listPosts(){
+        
+        $postManager=new PostManager;
 
-    $articles=$postManager->getPosts();
+        $articles=$postManager->getPosts();
 
-    require('view/frontend/listPostsView.php');
-}
+        require('view/frontend/listPostsView.php');
+    }
 
-function listPostsBackEnd(){
+    public function listPostsBackEnd(){
 
-    $postManager=new PostManager;
+        $postManager=new PostManager;
 
-    $articles=$postManager->getPosts();
+        $articles=$postManager->getPosts();
 
-    require('view/backend/listPost.php');
+        require('view/backend/listPost.php');
 
-}
+    }
 
-function post(){
+    public function post(){
 
-    $postManager=new PostManager;
-    $commentManager=new CommentManager;
+        $postManager=new PostManager;
+        $commentManager=new CommentManager;
 
-    $post = $postManager-> getPost($_GET['id']);
+        $post = $postManager-> getPost($_GET['id']);
 
-    $comments = $commentManager->getComments($_GET['id']);
+        $comments = $commentManager->getComments($_GET['id']);
 
-    require('view/frontend/postView.php');
-}
+        require('view/frontend/postView.php');
+    }
 
-function sendPost($title,$content) {
+    public function sendPost($title,$content) {
 
-    $postManager=new PostManager;
+        $postManager=new PostManager;
 
-    $postManager->postPost($title,$content);
+        $postManager->postPost($title,$content);
 
-    require('view/backend/menuBackend.php');
-}
+        require('view/backend/menuBackend.php');
+    }
 
-function makeNewPost(){
+    public function makeNewPost(){
 
-    require('view/backend/postPost.php');
-}
+        require('view/backend/postPost.php');
+    }
 
-function postBackEnd(){
+    public function postBackEnd(){
 
-    $postManager=new PostManager;
-    $commentManager=new CommentManager;
+        $postManager=new PostManager;
+        $commentManager=new CommentManager;
 
-    $post = $postManager->getPost($_GET['id']);
-    $comments = $commentManager->getComments($_GET['id']);
+        $post = $postManager->getPost($_GET['id']);
+        $comments = $commentManager->getComments($_GET['id']);
 
-    require('view/backend/postViewBackEnd.php');
-}
+        require('view/backend/postViewBackEnd.php');
+    }
 
-function deletePost($id) {
-    
-    $postManager=new PostManager;
+    public function deletePost($id) {
+        
+        $postManager=new PostManager;
 
-    $postManager->erasePost($id);
+        $postManager->erasePost($id);
 
-    header('Location:index.php?action=listpostbackend');
-    
-}
+        header('Location:index.php?action=listpostbackend');
+        
+    }
 
-function modifyPost($id){
+    public function modifyPost($id){
 
-    $postManager=new PostManager;
+        $postManager=new PostManager;
 
-    $post=$postManager->getPost($_GET['id']);
+        $post=$postManager->getPost($_GET['id']);
 
-    require('view/backend/modifyPost.php');
+        require('view/backend/modifyPost.php');
 
-}
+    }
 
-function changePost($id,$title,$content){
+    public function changePost($id,$title,$content){
 
-    $postManager=new PostManager;
+        $postManager=new PostManager;
 
-    $postManager->editPost($id,$title,$content);
+        $postManager->editPost($id,$title,$content);
 
-    header('Location:index.php?action=listpostbackend');
+        header('Location:index.php?action=listpostbackend');
+
+    }
 
 }
 
