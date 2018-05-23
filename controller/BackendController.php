@@ -30,7 +30,7 @@ class BackendController {
 
                 $addAction=true;
 
-                openSession($pseudo,$password);
+                $this->openSession($pseudo,$password);
                 
             } 
             

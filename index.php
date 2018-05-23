@@ -5,7 +5,7 @@ session_start();
 
 
 
-require('model/manager.php');
+require('model/Manager.php');
 require('model/BackendManager.php');
 require('model/CommentManager.php');
 require('model/PostManager.php');

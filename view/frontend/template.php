@@ -101,7 +101,7 @@
                 
                 } elseif (isset($_SESSION['pseudo'])){ 
                     
-                    echo ('Bienvenue  : '.$_SESSION['pseudo'] . '-----' . $backendManager->isAdmin($_SESSION['pseudo']));
+                    echo ('Bienvenue  : '.$_SESSION['pseudo']);
                 
                 }?>
 

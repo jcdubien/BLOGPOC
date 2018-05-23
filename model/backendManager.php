@@ -1,6 +1,6 @@
 <?php 
 
-require_once("manager.php");
+require_once("Manager.php");
 
 class BackendManager extends Manager {
 
@@ -66,11 +66,14 @@ class BackendManager extends Manager {
 
         $req = $db->prepare('SELECT id,pseudo,pass,email FROM users WHERE pseudo=:pseudo');
         
-        $affectedLine=$req->execute(array(
+        $req->execute(array(
             'pseudo'=>$pseudo,
         ));
 
-        return $affectedLine;
+        $member=$req->fetchAll();
+
+        if ($member===false) { return 1;}
+        else {return count($member);}
 
     } 
 
