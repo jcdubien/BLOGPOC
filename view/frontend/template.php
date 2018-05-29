@@ -8,6 +8,10 @@
 
         <meta charset="utf-8" />
 
+        <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+        <link rel="icon" type="image/png" sizes="96x96" href="/favicon-96x96.png">
+        <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+
             <!-- Latest compiled and minified CSS -->
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
 
@@ -99,11 +103,9 @@
 
                     <div class="col-lg-12 col-sm-12 col-xs-12 col-md-12"><a class="btn btn-info" href ="/BLOG/index.php?action=menubackend">Administration</a></div><?php
                 
-                } elseif (isset($_SESSION['pseudo'])){ 
-                    
-                    echo ('Bienvenue  : '.$_SESSION['pseudo']);
+                } 
                 
-                }?>
+            ?>
 
             </div>
 

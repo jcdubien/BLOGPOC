@@ -20,34 +20,41 @@ class BackendController {
 
         $backendManager=new BackendManager;
 
-        if ($password==$passwordcheck) {
-            
-            
-            $isAdded=$backendManager->addMember($pseudo,$password,$email);
+        if ($password==$passwordcheck)  {
+
+            if (!$backendManager->isMember($pseudo)) {
+                        
+                $isAdded=$backendManager->addMember($pseudo,$password,$email);
         
-
-            if ($isAdded) {
-
-                $addAction=true;
-
-                $this->openSession($pseudo,$password);
-                
-            } 
             
-            else {
+                if ($isAdded) {
 
+                    $addAction=true;
+
+                    $this->openSession($pseudo,$password);
+                    
+                } 
+                
+                else {
+
+                    $error="Impossible d'enregistrer l'utilisateur";
+                    
+                }
+
+            } else {
+                
                 $error="Impossible d'enregistrer l'utilisateur";
-
-                require('view/backend/createAccount.php');
+            
             }
         }
 
         else {
 
             $error='Mots de passe différents';
-
-            require('view/backend/createAccount.php');
+            
         }        
+
+        require('view/backend/createAccount.php');
     }
 
     function login(){
@@ -82,9 +89,10 @@ class BackendController {
                 }   
             }
             
-            else 
-            
-                {require('view/backend/login.php');}
+            else {
+                
+                require('view/backend/login.php');
+            }
 
         }
 

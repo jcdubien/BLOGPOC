@@ -38,51 +38,52 @@
 
     </div>
 
+<?php if ((isset($_SESSION['pseudo']) )) { ?>
+
+    <form  action="index.php?action=addComment&amp;id=<?= $post['id'] ?>" method="post">
+
+        <fieldset>
+
+            <div class="form-group">
+
+                <div class="row">
+                    
+                        <div class="col-lg-12 col-sm-12 col-xs-12 col-md-12">  
+                            <label for="author">Auteur</label><br />
+                            <?php if (isset($_SESSION['pseudo'])) {$pseudo=$_SESSION['pseudo'];} else {$pseudo=' ';}?> 
+                            <input class="form-control" type="text" id="author" name="author" value="<?=$pseudo?>" >
+                        </div>
+                </div>
 
 
-<form  action="index.php?action=addComment&amp;id=<?= $post['id'] ?>" method="post">
+                <div class="row tinymce">
 
-    <fieldset>
+                        <div class="col-lg-12 col-sm-12 col-xs-12 col-md-12">
 
-        <div class="form-group">
+                            <label for="comment">Commentaire</label><br />
+                            <textarea class="form-control tinymce" id="comment" name="comment" placeholder="Votre commentaire" ></textarea>
+                            <br/>
+                        </div>
+                <div>
 
-            <div class="row">
-                
-                    <div class="col-lg-12 col-sm-12 col-xs-12 col-md-12">  
-                        <label for="author">Auteur</label><br />
-                        <?php if (isset($_SESSION['pseudo'])) {$pseudo=$_SESSION['pseudo'];} else {$pseudo=' ';}?> 
-                        <input class="form-control" type="text" id="author" name="author" value=<?=$pseudo?> >
-                    </div>
             </div>
-
-            <div class="row tinymce">
-
-                    <div class="col-lg-12 col-sm-12 col-xs-12 col-md-12">
-
-                        <label for="comment">Commentaire</label><br />
-                        <textarea class="form-control tinymce" id="comment" name="comment" placeholder="Votre commentaire" ></textarea>
-                        <br/>
-                    </div>
-            <div>
-
-        </div>
-    
-    
-         <div class="row" style="marginTop:30px">    
         
-            <button class="btn btn-primary" type="submit">Envoyer</button>
-            <a href="index.php" class="btn btn-danger">Retour</a>
-
-
-        <div>
-       
+        
+            <div class="row" style="marginTop:30px">    
             
+                <button class="btn btn-primary" type="submit">Envoyer</button>
+                <a href="index.php" class="btn btn-danger">Retour</a>
 
-    </fieldset>
+
+            <div>
+        
+                
+
+        </fieldset>
 
 </form>
 
-
+<?php } ?>
 
 <?php $content=ob_get_clean(); ?>
 

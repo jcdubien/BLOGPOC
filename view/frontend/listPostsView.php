@@ -16,16 +16,22 @@
         ?>
             <div class="news">
                 <div >
-                    <h3 class="title" ><?= htmlspecialchars($data['title']) ?></h3>
+                    <h3 class="title">
+
+                        <a href="/BLOG/index.php?action=post&amp;id=<?= $data['id'] ?>">
+                            <?= htmlspecialchars($data['title']) ?>
+                        </a>
+                    </h3>
+
                     <em class="title">le <?= $data['creation_date_fr'] ?></em>
                 </div>
                 
                 <p>
                     <?= nl2br($data['content']) ?>
                     <br />
-                    <?php if ((isset($_SESSION['pseudo']) )) { ?>
+                    
                     <em><a class="btn btn-warning" href="/BLOG/index.php?action=post&amp;id=<?= $data['id'] ?>">Commentaires</a></em>
-                    <?php } ?>
+                    
                 </p>
             </div>
         <?php
