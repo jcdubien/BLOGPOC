@@ -59,24 +59,7 @@ switch($menu) {
         $Post->listPosts();
 
     break;
-    
-    case "post":
-
-            echo $_GET['id'];
-            
-                if ((isset($GET['id'])) && $GET['id'] >0) {
-
-                    $Post=new ArticleController;
-
-                    $Post->post();
-                }
-                else {
-
-                    echo 'Erreur : aucun identifiant de billet envoyé';
-
-                }
-    break;
-
+   
     case "makenewpost":
 
         $Post=new ArticleController;
