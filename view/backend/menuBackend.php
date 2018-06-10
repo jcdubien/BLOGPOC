@@ -15,18 +15,18 @@
 
         <div class="row menu">
                 
-        <div class="col-lg-6 col-sm-6 col-xs-6" >  
+        <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12" >  
                 
                 <h2>Que souhaitez vous faire ?<br /></h2>
                 <br />
 
                 <a class="btn btn-info" href='index.php?action=makenewpost'>Poster un nouveau billet</a><br/>
-                <a class="btn btn-info" href='index.php?action=listpostbackend'>Lister les billets pour suppression ou modification</a><br />
+                <a class="btn btn-info" href='index.php?action=listpostbackend'>Editer les billets</a><br />
 
         
         </div>
 
-        <div class="col-lg-6 col-sm-6 col-xs-6" > 
+        <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12" > 
 
         <h2>Derniers commentaires signalés</h2>
 

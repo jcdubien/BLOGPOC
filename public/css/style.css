@@ -141,8 +141,6 @@ text-decoration: deeppink;
   display:block;
   margin:auto;
   text-align: center;
-  border:solid black 1px;
-  border-radius: 10px;
   padding:10px;
   margin-top:10px;
 
@@ -162,4 +160,8 @@ text-decoration: deeppink;
   padding:10px;
   margin-top:10px;
   background-color: lightgrey;
+}
+
+.commentlist:empty {
+  display: none;
 }

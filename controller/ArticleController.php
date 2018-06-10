@@ -43,7 +43,7 @@ class ArticleController {
 
         $postManager->postPost($title,$content);
 
-        require('view/backend/menuBackend.php');
+        require('view/backend/menuBackEnd.php');
     }
 
     public function makeNewPost(){

@@ -30,9 +30,7 @@
             <div class="postcommenttitle">
                 <h3><?= htmlspecialchars($comment['author']) ?></h3> 
                 le <?= $comment['comment_date_fr'] ?></h3>
-            
-
-            <p><?= nl2br($comment['comment']) ?><a class="btn btn-danger" href="index.php?action=report&amp;postID=<?= $comment['post_id'];?>&amp;id=<?= $comment['id']?>">Signaler</a></p>
+                <p><?= nl2br(htmlspecialchars($comment['comment'])) ?><a class="btn btn-danger" href="index.php?action=report&amp;postID=<?= $comment['post_id'];?>&amp;id=<?= $comment['id']?>">Signaler</a></p>
             </div>
         <?php }?>
 
@@ -56,12 +54,12 @@
                 </div>
 
 
-                <div class="row tinymce">
+                <div class="row ">
 
                         <div class="col-lg-12 col-sm-12 col-xs-12 col-md-12">
 
                             <label for="comment">Commentaire</label><br />
-                            <textarea class="form-control tinymce" id="comment" name="comment" placeholder="Votre commentaire" ></textarea>
+                            <input type="text" class="form-control" id="comment" name="comment" placeholder="Votre commentaire" ></input>
                             <br/>
                         </div>
                 <div>

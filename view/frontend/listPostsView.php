@@ -30,7 +30,7 @@
                     <?= nl2br($data['content']) ?>
                     <br />
                     
-                    <em><a class="btn btn-warning" href="/BLOG/index.php?action=post&amp;id=<?= $data['id'] ?>">Commentaires</a></em>
+                    <em><a class="btn btn-warning" href="/BLOG/index.php?action=post&amp;id=<?= $data['id'] ?>">Lire la suite ...</a></em>
                     
                 </p>
             </div>

@@ -15,7 +15,7 @@
             </h3>
             
             <p>
-                <?= nl2br($data['content']) ?>
+                <?= nl2br($data['content']) ?><br/>
                 <a class="btn btn-info" href="index.php?action=deletepost&amp;id=<?= $data['id']?>" onClick="return confirm('Etes vous sûr ?')">Supprimer </a>
                 <a class="btn btn-info" href="index.php?action=modifypost&amp;id=<?= $data['id']?>"> Modifier </a>
                 <a class="btn btn-info" href="/BLOG/index.php?action=postbackend&amp;id=<?= $data['id'] ?>">Commentaires</a>
