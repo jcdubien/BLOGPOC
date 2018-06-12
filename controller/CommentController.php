@@ -88,7 +88,7 @@ class CommentController {
         
         $affectedLine=$commentManager->deleteCommentByPostId($postId);
 
-        header('Location:index.php');
+        header('Location:index.php?action=listpostbackend');
     }
 
 }

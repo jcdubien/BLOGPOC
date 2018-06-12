@@ -32,8 +32,8 @@ while ($comment = $comments->fetch())
 
     <p class='title'>
     
-        <div  ><?= nl2br($comment['comment']) ?></div>
-        <a class="btn btn-danger btn-sm" href="index.php?action=deletecomment&amp;id=<?= $post['id']?>">Supprimer</a>
+        <div  ><?= nl2br(htmlspecialchars($comment['comment'])) ?></div>
+        <em><a class="btn btn-danger btn-sm" href="/BLOG/index.php?action=deletecomment&amp;id=<?= $comment['id'] ;?>&amp;postID=<?= $comment['post_id']; ?>" onClick="return confirm('Etes vous sûr ?')">Supprimer</a></em>
     
     </p><?php
 
@@ -46,7 +46,7 @@ while ($comment = $comments->fetch())
 <div class="row" style="marginTop:30px,textAlign:center">    
     
     
-    <a href="index.php" class="btn btn-danger">Retour</a>
+    <a href="index.php?action=listpostbackend" class="btn btn-danger">Retour</a>
 
 
 </div>  

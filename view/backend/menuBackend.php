@@ -20,8 +20,8 @@
                 <h2>Que souhaitez vous faire ?<br /></h2>
                 <br />
 
-                <a class="btn btn-info" href='index.php?action=makenewpost'>Poster un nouveau billet</a><br/>
-                <a class="btn btn-info" href='index.php?action=listpostbackend'>Editer les billets</a><br />
+                <a class="btn btn-info" href='index.php?action=makenewpost'>Poster un nouveau texte</a><br/>
+                <a class="btn btn-info" href='index.php?action=listpostbackend'>Editer les textes</a><br />
 
         
         </div>

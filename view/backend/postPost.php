@@ -8,7 +8,7 @@
 
     <form class="formulaire" action="\BLOG\index.php?action=postnew" method="post">
 
-    <legend>Postez votre message</legend>
+    <legend>Rédigez votre texte</legend>
 
     <fieldset>
 
