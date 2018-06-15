@@ -2,13 +2,8 @@
 
 <?php $title = 'Liste des actualités'; ?>
 
+
 <?php ob_start(); ?>
-
-<div class="top-img">
-
-    <img  src="public/alaska.jpg">
-
-</div>
 
 <?php
         while ($data = $articles->fetch())
@@ -26,13 +21,13 @@
                     <em class="title">le <?= $data['creation_date_fr'] ?></em>
                 </div>
                 
-                <p>
-                    <?= nl2br($data['content']) ?>
-                    <br />
-                    
+                <div>
+                
+                    <?= $data['content'] ?>
+                                      
                     <em><a class="btn btn-warning" href="/BLOG/index.php?action=post&amp;id=<?= $data['id'] ?>">Lire la suite ...</a></em>
                     
-                </p>
+                </div>
             </div>
         <?php
         }
