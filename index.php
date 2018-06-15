@@ -176,7 +176,7 @@ try {
 
         case "postnew":
 
-        if (!empty($_POST['author']) && !empty($_POST['comment'])) { 
+        if (!empty($_POST['title']) && !empty($_POST['post'])) { 
 
             $Post=new ArticleController;
 

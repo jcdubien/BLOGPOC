@@ -23,7 +23,9 @@
                 
                 <div>
                 
-                    <?= $data['content'] ?>
+                    <?= strip_tags($data['content']).'....' ?>
+
+                    <br/>
                                       
                     <em><a class="btn btn-warning" href="/BLOG/index.php?action=post&amp;id=<?= $data['id'] ?>">Lire la suite ...</a></em>
                     
