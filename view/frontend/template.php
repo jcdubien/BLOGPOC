@@ -81,9 +81,12 @@
 
                 </div>
 
-            </div>
-        </nav>
             
+            </div>
+
+        </nav>
+
+        <img class=img-responsive src="/BLOG/public/alaska.jpg"/>
 
         <?= $content ?>
 
