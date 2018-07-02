@@ -25,8 +25,10 @@ class PostManager extends Manager {
 
         $post = $req->fetch();
 
+        
         return $post;
-
+        
+     
     }
 
     public function postPost($title,$content){
@@ -35,11 +37,11 @@ class PostManager extends Manager {
 
         $article=$db->prepare('INSERT INTO t_article(title,content,creation_date) VALUES(:title,:content,NOW())');
         
-        $affectedLines=$article->execute(array(
+        $affectedLine=$article->execute(array(
             'title'=>$title,
             'content'=>$content,));
 
-        return $affectedLines;
+        return $affectedLine;
     }
 
     public function erasePost($id) {
@@ -48,9 +50,9 @@ class PostManager extends Manager {
 
         $article=$db->prepare('DELETE FROM t_article WHERE id=?');
 
-        $affectedLines=$article->execute(array($id));
+        $affectedLine=$article->execute(array($id));
 
-        return $affectedLines;
+        return $affectedLine;
 
     }
 

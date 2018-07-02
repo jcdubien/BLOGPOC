@@ -118,4 +118,14 @@ class BackendController {
         require('view/frontend/bio.php');
     }
 
+    function error(){
+
+        require('view/backend/errorView.php');
+    }
+
+    function missingField() {
+
+        require('view/backend/missingField.php');
+    }
+   
 }

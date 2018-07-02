@@ -32,18 +32,29 @@ class ArticleController {
 
         $post = $postManager-> getPost($_GET['id']);
 
-        $comments = $commentManager->getComments($_GET['id']);
+        if (!$post) {
+            
+            header('Location:index.php?action=error');
+        } 
+        
+        else {
 
-        require('view/frontend/postView.php');
+            $comments = $commentManager->getComments($_GET['id']);
+
+            require('view/frontend/postView.php');
+        }
+
     }
 
     public function sendPost($title,$content) {
 
         $postManager=new PostManager;
 
-        $postManager->postPost($title,$content);
+        $affectedLine=$postManager->postPost($title,$content);
 
-        require('view/backend/menuBackEnd.php');
+        if ($affectedLine ===false) { header('Location:index.php?action=error');} else {
+
+        require('view/backend/menuBackEnd.php');}
     }
 
     public function makeNewPost(){
@@ -66,9 +77,11 @@ class ArticleController {
         
         $postManager=new PostManager;
 
-        $postManager->erasePost($id);
+        $affectedLine=$postManager->erasePost($id);
 
-        header('Location:index.php?action=listpostbackend');
+        if ($affectedLine ===false) { header('Location:index.php?action=error');} else {
+
+        header('Location:index.php?action=listpostbackend');}
         
     }
 
@@ -86,9 +99,11 @@ class ArticleController {
 
         $postManager=new PostManager;
 
-        $postManager->editPost($id,$title,$content);
+        $affectedLine=$postManager->editPost($id,$title,$content);
 
-        header('Location:index.php?action=listpostbackend');
+        if ($affectedLine===false) { header('Location:index.php?action=error');} else {
+
+        header('Location:index.php?action=listpostbackend');}
 
     }
 

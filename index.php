@@ -27,13 +27,16 @@ try {
 
             if (isset($_GET['id']) && $_GET['id'] > 0) {
 
+                
                 $Post=new ArticleController;
                         
                 $Post->post();
+
+
             }
             else {
 
-                throw new Exception('Aucun identifiant de billet envoyé');
+                header('Location:index.php?action=error');
             }
         break;
 
@@ -48,11 +51,12 @@ try {
                     $Comment->addComment($_GET['id'], $_POST['author'], $_POST['comment']);
                 }
                 else {
-                    throw new Exception('Tous les champs ne sont pas remplis !');
+
+                    header('Location:index.php?action=missingfield');
                 }
             }
             else {
-                throw new Exception('Aucun identifiant de billet envoyé');
+                header('Location:index.php?action=error');
             }
         break;
 
@@ -200,7 +204,7 @@ try {
 
             $Comment->eraseCommentByPostId($_GET['id']);}
 
-            else { throw new exception ('Identifiants inccorects'); }
+            else { throw new exception ('Identifiants incorrects'); }
         
         break;
 
@@ -212,7 +216,7 @@ try {
 
             $Post->modifyPost($_GET['id']);}
 
-            else {throw new exception ('Identifiants incoorects');}
+            else {throw new exception ('Identifiants incorrects');}
 
         break;
 
@@ -310,6 +314,21 @@ try {
 
         break;
 
+        case 'error':
+
+            $Backend=new BackendController;
+
+            $Backend->error();
+
+        break;
+
+        case 'missingfield':
+
+            $Backend=new BackendController;
+
+            $Backend->missingField();
+
+        break;
         
         
         default:
